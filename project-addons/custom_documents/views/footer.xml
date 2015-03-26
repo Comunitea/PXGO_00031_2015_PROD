@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="custom_footer"  inherit_id="report.external_layout_footer">
+            <xpath expr="//div[@class='text-center']" position="inside">
+                <ul class="list-inline">
+                    <li t-if="company.partner_id.vat">C.I.F <span t-field="company.partner_id.vat"/></li>
+                    <li t-if="company.partner_id.es_registro_mercantil">Inscrito en el Registro Mercantil de <span t-field="company.partner_id.es_registro_mercantil"/></li>
+                    <li t-if="company.partner_id.es_tomo">tomo <span t-field="company.partner_id.es_tomo"/></li>
+                    <li t-if="company.partner_id.es_tomo">folio <span t-field="company.partner_id.es_folio"/></li>
+                    <li t-if="company.partner_id.es_tomo">hoja <span t-field="company.partner_id.es_hoja"/></li>
+                </ul>
+            </xpath>
+
+        </template>
+    </data>
+</openerp>
