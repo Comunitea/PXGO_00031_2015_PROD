@@ -26,8 +26,8 @@
     'description': """""",
     'author': 'Pexego',
     'website': '',
-    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil', 'account_payment_partner'],
+    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil', 'account_payment_partner', 'sale'],
     "data": ['views/footer.xml', 'views/ir_qweb.xml',
-             'views/report_purchaseorder.xml', 'views/report_invoice.xml'],
+             'views/report_purchaseorder.xml', 'views/report_invoice.xml', 'views/report_saleorder.xml'],
     "installable": True
 }
