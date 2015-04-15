@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * mrp_subcontracting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-15 15:02+0000\n"
+"PO-Revision-Date: 2015-04-15 15:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_subcontracting
+#: code:addons/mrp_subcontracting/models/stock.py:54
+#, python-format
+msgid " Subcontract"
+msgstr " Subcontratación"
+
+#. module: mrp_subcontracting
+#: code:addons/mrp_subcontracting/models/stock.py:50
+#, python-format
+msgid "Can't find any generic Subcontract route."
+msgstr "No he ha podido encontrar ninguna ruta de subcontratación genérica."
+
+#. module: mrp_subcontracting
+#: field:stock.picking.type,force_purchase_dest:0
+msgid "Force purchase dest."
+msgstr "Forzar dest. compra"
+
+#. module: mrp_subcontracting
+#: help:stock.picking.type,force_purchase_dest:0
+msgid "Forces dest. location on purchase orders with this type "
+msgstr "Fuerza la ubicación de destino en compras de este tipo"
+
+#. module: mrp_subcontracting
+#: help:mrp.routing,supplier_id:0
+msgid "If you subcontract the manufacturing operations and you need to send goods to supplier, set it here"
+msgstr "Si subcontrata las operaciones de producción y necesita enviar mercancía a su proveedor, póngalo aquí."
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Órden de producción"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_mrp_routing
+msgid "Routing"
+msgstr "Proceso productivo"
+
+#. module: mrp_subcontracting
+#: code:addons/mrp_subcontracting/models/stock.py:46
+#: model:stock.picking.type,name:mrp_subcontracting.picking_type_subcontract
+#, python-format
+msgid "Subcontract"
+msgstr "Subcontratación"
+
+#. module: mrp_subcontracting
+#: field:mrp.routing,supplier_id:0
+msgid "Subcontract Supplier"
+msgstr "Proveedor subcontratación"
+
+#. module: mrp_subcontracting
+#: field:stock.warehouse,subcontract_allow:0
+msgid "Subcontract allow"
+msgstr "Subcontratación permitida"
+
+#. module: mrp_subcontracting
+#: field:stock.warehouse,subcontract_pull_id:0
+msgid "Subcontract rule"
+msgstr "Regla subcontratación"
+
+#. module: mrp_subcontracting
+#: field:stock.warehouse,subcontract_type_id:0
+msgid "Subcontract type"
+msgstr "Tipo subcontratación"
+
+#. module: mrp_subcontracting
+#: model:stock.location,name:mrp_subcontracting.stock_location_subcontracts
+msgid "Subcontracts"
+msgstr "Subcontrataciones"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_stock_picking_type
+msgid "The picking type determines the picking view"
+msgstr "El tipo de albarán determina la vista de albarán"
+
+#. module: mrp_subcontracting
+#: model:ir.model,name:mrp_subcontracting.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Almacén"
+
