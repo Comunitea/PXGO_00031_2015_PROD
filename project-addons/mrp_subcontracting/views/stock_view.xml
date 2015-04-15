@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_warehouse_add_subcontract_allow" model="ir.ui.view">
+            <field name="name">stock.warehouse.add_subcontract_allow</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+                <field name="delivery_steps" position="after">
+                    <field name="subcontract_allow"/>
+                </field>
+                <field name="out_type_id" position="after">
+                    <field name="subcontract_type_id" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_picking_type_form_add_force_purchase_dest">
+            <field name="name">Picking Types add force_purchase_dest</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <field name="warehouse_id" position="after">
+                    <field name="force_purchase_dest"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
