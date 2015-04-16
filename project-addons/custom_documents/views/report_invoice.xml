@@ -18,10 +18,10 @@
                         <span t-if="ml.date_maturity">
                             <span t-field="ml.date_maturity"/>:
                             <t t-if="ml.debit">
-                                <span t-field="ml.debit"/> -
+                                <span t-field="ml.debit"/> €
                             </t>
                             <t t-if="ml.credit">
-                                <span t-field="ml.credit"/> -
+                                <span t-field="ml.credit"/> €
                             </t>
                         </span>
                     </span>
