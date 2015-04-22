@@ -26,8 +26,11 @@
     'description': """""",
     'author': 'Pexego',
     'website': '',
-    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil', 'account_payment_partner', 'sale'],
-    "data": ['views/footer.xml', 'views/ir_qweb.xml',
-             'views/report_purchaseorder.xml', 'views/report_invoice.xml', 'views/report_saleorder.xml'],
+    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
+                'account_payment_partner', 'sale'],
+    "data": ['views/footer.xml', 'views/header.xml', 'views/ir_qweb.xml',
+             'views/report_purchaseorder.xml', 'views/report_invoice.xml',
+             'views/report_saleorder.xml', 'views/report_stockpicking.xml',
+             'data/report_paperformat.xml'],
     "installable": True
 }

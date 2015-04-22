@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_picking" inherit_id="stock.report_picking">
+            <xpath expr="//table[@class='table table-condensed'][@t-if='o.pack_operation_ids']" position="after">
+                <div class="row" t-if="o.picking_type_code == 'internal'">
+                    <div class="col-xs-12">
+                        <span t-field="o.note"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
