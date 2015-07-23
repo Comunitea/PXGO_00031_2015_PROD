@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 Pexego All Rights Reserved
-#    $Jesús Ventosinos Mayor <jesus@pexego.es>$
+#    Copyright (C) 2015 Comunitea All Rights Reserved
+#    $Kiko Sánchez <kiko@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -17,8 +17,13 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+#
 ##############################################################################
+from openerp import models, fields, api, exceptions
 
-from . import stock
-from . import sale_order
-from . import account_invoice
+
+class SaleOrder(models.Model):
+
+    _inherit = 'sale.order'
+    delivery_date = fields.Date('Delivery Date')
+    #supplier_ref = fields.Char('Supplier reference')
