@@ -19,6 +19,6 @@
 #
 ##############################################################################
 
-from . import stock
+from . import stock, stock_picking
 from . import sale_order
 from . import account_invoice
