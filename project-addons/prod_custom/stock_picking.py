@@ -30,14 +30,15 @@ class StockPicking(models.Model):
     @api.depends('origin')
     def _get_stock_picking_pair(self):
         for stocks in self:
-            stocks.stock_picking_pair=""
-            stock_pick_pool= self.env['stock.picking'].search([('origin', '=', stocks.origin), ('id', '!=', stocks.id)])
-            if stock_pick_pool:
-                stocks.stock_picking_pair= stock_pick_pool[0]
-            else:
-                stock_pick_pool= self.env['stock.picking'].search([('name', '=', stocks.origin), ('id', '!=', stocks.id)])
+            if stocks.id:
+                stocks.stock_picking_pair=""
+                stock_pick_pool= self.env['stock.picking'].search([('origin', '=', stocks.origin), ('id', '!=', stocks.id)])
                 if stock_pick_pool:
                     stocks.stock_picking_pair= stock_pick_pool[0]
+                else:
+                    stock_pick_pool= self.env['stock.picking'].search([('name', '=', stocks.origin), ('id', '!=', stocks.id)])
+                    if stock_pick_pool:
+                        stocks.stock_picking_pair= stock_pick_pool[0]
 
 
 
