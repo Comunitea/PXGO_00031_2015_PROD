@@ -28,6 +28,7 @@
     "depends": ['purchase', 'mrp', 'product', 'stock'],
     "data": ['data/mrp_subcontract_data.xml',
              'views/stock_view.xml',
-             'views/mrp_view.xml'],
+             'views/mrp_view.xml',
+             'views/mrp_product_produce_view.xml'],
     "installable": True
 }

@@ -20,11 +20,21 @@
 ##############################################################################
 
 from openerp import models, api, fields
+from openerp.osv import osv, orm
 
 
 class MrpProduction(models.Model):
 
     _inherit = "mrp.production"
+
+    @api.model
+    def action_produce(self, production_id, production_qty, production_mode, wiz=False):
+        production = self.browse(production_id)
+        stock_mov_obj = self.env['stock.move']
+        if wiz and production_mode == 'consume_produce':
+            for produce_product in production.move_created_ids:
+                produce_product.write({'location_dest_id':wiz.location_id.id})
+        super(MrpProduction, self).action_produce(production_id, production_qty, production_mode, wiz)
 
     @api.model
     def _make_service_procurement(self, line):
@@ -80,13 +90,40 @@ class MrpProduction(models.Model):
     @api.model
     def _create_previous_move(self, move_id, product, source_location_id,
                               dest_location_id):
-        move = super(MrpProduction, self).\
-            _create_previous_move(move_id, product, source_location_id,
-                                  dest_location_id)
-        if self.env.context.get('subcontract_partner', False):
-            move_obj = self.env["stock.move"].browse(move)
-            move_obj.write({'partner_id':
-                            self.env.context['subcontract_partner']})
+        routes = product.route_ids + product.categ_id.total_route_ids
+        pull_obj = self.env['procurement.rule']
+        pulls = pull_obj.search([('route_id', 'in', [x.id for x in routes]),
+                                    ('location_id', '=', dest_location_id)], limit=1)
+
+        if pulls.action == 'buy':
+            # crear procurement en la ubicación
+            stock_move = self.env['stock.move']
+            type_obj = self.env['stock.picking.type']
+            # Need to search for a picking type
+            move = stock_move.browse(move_id)
+            vals = {
+                'name': move.name,
+                'origin': move.name,
+                'company_id': move.company_id.id,
+                'date_planned': move.date_expected,
+                'product_id': move.product_id.id,
+                'product_qty': move.product_qty,
+                'product_uom': move.product_uom.id,
+                'product_uos_qty': move.product_uos_qty,
+                'product_uos': move.product_uos.id,
+                'location_id': dest_location_id
+                }
+            proc = self.env['procurement.order'].create(vals)
+            self.env['procurement.order'].run( [proc],)
+            return move.id
+        else:
+            move = super(MrpProduction, self)._create_previous_move(
+                move_id, product, source_location_id,
+                                      dest_location_id)
+            if self.env.context.get('subcontract_partner', False):
+                move_obj = self.env["stock.move"].browse(move)
+                move_obj.write({'partner_id':
+                                self.env.context['subcontract_partner']})
         return move
 
 

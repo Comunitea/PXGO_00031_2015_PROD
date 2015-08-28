@@ -23,3 +23,4 @@ from . import product
 from . import mrp
 from . import stock
 from . import purchase
+from . import mrp_product_produce

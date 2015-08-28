@@ -13,5 +13,30 @@
             </field>
         </record>
 
+        <record id="view_move_picking_tree_prodi" model="ir.ui.view">
+            <field name="name">view.move.picking.tree.prodi</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="default_order">date</attribute>
+                </xpath>
+                <field name="string_availability_info" position="before">
+                    <field name="date"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_picking_form_add_pair" model="ir.ui.view">
+            <field name="name">view.picking.form.add.pair</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="stock_picking_pair"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>
