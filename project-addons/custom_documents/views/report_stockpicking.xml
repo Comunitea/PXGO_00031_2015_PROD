@@ -74,7 +74,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <span t-if="o.state != 'done' "/>
                                         <tr t-foreach="o.move_lines" t-as="move">
 
                                                 <td><span t-field="move.product_id.default_code"/></td>
@@ -82,8 +82,16 @@
                                                 <td class="text-right"><span t-field="move.product_uom_qty"/> <span t-field="move.product_uom" groups="product.group_uom"/></td>
 
                                         </tr>
+                                    </span>
+                                    <span t-if="o.state == 'done' "/>
+                                        <tr t-foreach="o.pack_operation_ids" t-as="operation">
 
-
+                                                <td><span t-field="operation.product_id.default_code"/></td>
+                                                <td><span t-field="operation.product_id.name"/></td>
+                                                <td class="text-right"><span t-field="operation.product_qty"/> <span t-field="operation.product_uom_id" groups="product.group_uom"/></td>
+                                                <td class="text-right"><span t-field="operation.lot_id"/></td>
+                                        </tr>
+                                    </span>
 
                                 </tbody>
                             </table>
