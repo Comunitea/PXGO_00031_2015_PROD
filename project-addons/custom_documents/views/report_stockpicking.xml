@@ -4,7 +4,7 @@
         <!--template id="delivery.report_shipping2" inherit_id="stock.report_picking" /-->
 
         <template id="stock.report_picking" >
-            <t t-call="report.html_container">
+             <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="report.external_layout">
                         <div class="page">
@@ -20,8 +20,7 @@
                                          <span><strong>Customer Address:</strong></span>
                                      </div>
                                      <div t-if="o.partner_id" name="partner_header">
-                                         <div t-field="o.partner_id"
-                                            t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                                         <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
                                         <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
                                      </div>
                                 </div>
@@ -56,7 +55,7 @@
                                         </td>
 
                                          <td t-if="o.date_done">
-                                            <span t-field="o.date_done" t-field-options='{"format": "dd/MM/y"}'/>
+                                            <span t-field="o.date_done" t-field-options="{&quot;format&quot;: &quot;dd/MM/y&quot;}"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -74,7 +73,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <span t-if="o.state != 'done' "/>
+
+                                       <span t-if="o.state != 'done' ">
                                         <tr t-foreach="o.move_lines" t-as="move">
 
                                                 <td><span t-field="move.product_id.default_code"/></td>
@@ -83,16 +83,15 @@
 
                                         </tr>
                                     </span>
-                                    <span t-if="o.state == 'done' "/>
+                                    <span t-if="o.state == 'done' ">
                                         <tr t-foreach="o.pack_operation_ids" t-as="operation">
 
                                                 <td><span t-field="operation.product_id.default_code"/></td>
-                                                <td><span t-field="operation.product_id.name"/></td>
+                                                <td><span t-field="operation. linked_move_operation_ids[0].move_id.name"/></td>
                                                 <td class="text-right"><span t-field="operation.product_qty"/> <span t-field="operation.product_uom_id" groups="product.group_uom"/></td>
                                                 <td class="text-right"><span t-field="operation.lot_id"/></td>
                                         </tr>
                                     </span>
-
                                 </tbody>
                             </table>
 
@@ -105,4 +104,5 @@
              </t>
         </template>
     </data>
+
 </openerp>
