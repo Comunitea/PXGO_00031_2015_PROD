@@ -28,16 +28,9 @@
                 </p>
             </xpath>
             <xpath expr="//h2" position="replace">
-                <h3>
-                    <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">PRO-FORMA</span>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
-                    <span t-if="o.type == 'out_refund'">Refund</span>
-                    <span t-if="o.type == 'in_refund'">Supplier Refund</span>
-                    <span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
-                    <span t-field="o.number"/>
-                </h3>
+            </xpath>
+            <xpath expr="//div[@t-if='o.reference']/strong" position="replace">
+                <strong>Your order number</strong>
             </xpath>
         </template>
     </data>

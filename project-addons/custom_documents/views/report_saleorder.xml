@@ -3,8 +3,8 @@
     <data>
         <template id="report_saleorder_document_custom" inherit_id="sale.report_saleorder_document">
             <xpath expr="//tr[@t-foreach='o.order_line']/td[2]" position="replace">
-                <td>
-                    <span t-esc="', '.join(map(lambda x: x.description, l.tax_id))"/>
+                <td t-if="o.state not in ('draft', 'sent')">
+                    <span t-esc="', '.join(map(lambda x: x.description, l.tax_id))" />
                 </td>
             </xpath>
             <xpath expr="//h2" position="replace">
@@ -13,6 +13,9 @@
                     <span t-if="o.state in ['draft','sent']">Quotation N° </span>
                     <span t-field="o.name"/>
                 </h3>
+                <h4 t-if="o.title">
+                    <span t-field="o.title"/>
+                </h4>
             </xpath>
 
             <xpath expr="//div[@t-if='o.user_id.name']" position="before">
@@ -20,6 +23,26 @@
                     <strong>Delivery Date:</strong>
                     <p t-field="o.delivery_date"/>
                 </div>
+            </xpath>
+
+            <xpath expr="//p[@t-field='o.note']" position="before">
+                <strong t-if="o.note">Notes</strong>
+            </xpath>
+
+            <xpath expr="//div[@t-if='o.payment_term']" position="replace">
+            </xpath>
+            <xpath expr="//div[@t-if='o.date_order']/p" position="replace">
+                <p t-field="o.date_order_without_hour"/>
+            </xpath>
+            <xpath expr="//th[text()='Taxes']" position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+
+            <xpath expr="//tr[@class='border-black'][1]" position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.amount_tax']/../.." position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
             </xpath>
         </template>
     </data>

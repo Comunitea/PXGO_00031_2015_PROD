@@ -18,7 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
     'name': 'Custom documents',
     'version': '1.0',
@@ -27,10 +26,10 @@
     'author': 'Pexego',
     'website': '',
     "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
-                'account_payment_partner', 'sale'],
-    "data": ['views/footer.xml', 'views/header.xml', 'views/ir_qweb.xml',
+                'account_payment_partner', 'sale', 'report_qweb_element_page_visibility'],
+    "data": ['views/footer.xml', 'views/header.xml',
              'views/report_purchaseorder.xml', 'views/report_invoice.xml',
              'views/report_saleorder.xml', 'views/report_stockpicking.xml',
-             'data/report_paperformat.xml'],
+             'views/sale.xml', 'views/stock.xml', 'data/report_paperformat.xml'],
     "installable": True
 }
