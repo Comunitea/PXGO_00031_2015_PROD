@@ -29,6 +29,7 @@ class StockPicking(models.Model):
 
     @api.model
     def _get_invoice_vals(self, key, inv_type, journal_id, move):
-        res = super(StockPicking, self)._get_invoice_vals(key, inv_type, journal_id, move)
+        res = super(StockPicking, self)._get_invoice_vals(key, inv_type,
+                                                          journal_id, move)
         res['supplier_picking_ref'] = move.picking_id.supplier_ref
         return res
