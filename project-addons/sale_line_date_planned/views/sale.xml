@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+       <record id="sale_order_form_add_date_planned" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+           <field name="arch" type="xml">
+               <xpath expr="/form/sheet//field[@name='order_line']/tree/field[@name='product_uom']" position="after">
+                    <field name="date_planned" />
+                </xpath>
+                <xpath expr="/form/sheet//field[@name='order_line']/form//field[@name='price_unit']" position="before">
+                    <field name="date_planned" />
+                </xpath>
+           </field>
+       </record>
+
+    </data>
+</openerp>
