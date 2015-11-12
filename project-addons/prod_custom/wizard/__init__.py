@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 Pexego All Rights Reserved
-#    $Jesús Ventosinos Mayor <jesus@pexego.es>$
+#    Copyright (C) 2015 Comunitea All Rights Reserved
+#    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,16 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': "Prodimar customizations",
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Pexego',
-    'website': '',
-    "depends": [ 'sale', 'stock', 'account'],
-    "data": ['stock_view.xml', 'sale_order_view.xml', 'account_invoice.xml',
-             'product_view.xml', 'wizard/stock_transfer_details_view.xml'],
-    "installable": True
-}
+from . import stock_transfer_details

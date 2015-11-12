@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* prod_custom
+#   * prod_custom
 #
 msgid ""
 msgstr ""
@@ -21,4 +21,12 @@ msgstr ""
 msgid "Supplier reference"
 msgstr "Albarán de proveedor"
 
+#. module: prod_custom
+#: field:stock.transfer_details_items,account_analytic_id:0
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
 
+#. module: prod_custom
+#: view:product.template:prod_custom.product_template_kanban_stock_view
+msgid "Available:"
+msgstr "Disponible:"
