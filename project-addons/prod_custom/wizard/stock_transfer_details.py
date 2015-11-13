@@ -19,6 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
+from lxml import etree
 
 class stock_transfer_details_items(models.TransientModel):
     _inherit = 'stock.transfer_details_items'
