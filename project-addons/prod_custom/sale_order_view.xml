@@ -12,5 +12,12 @@
                 </field>
             </field>
         </record>
+
+        <record id="sale.action_quotations" model="ir.actions.act_window">
+            <field name="context">{}</field>
+        </record>
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="context">{}</field>
+        </record>
     </data>
 </openerp>
