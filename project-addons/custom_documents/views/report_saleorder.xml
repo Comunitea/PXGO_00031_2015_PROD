@@ -44,6 +44,16 @@
             <xpath expr="//span[@t-field='o.amount_tax']/../.." position="attributes">
                 <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
             </xpath>
+
+            <xpath expr="//span[@t-field='o.amount_total']/.." position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.amount_total']/.." position="after">
+                <td class="text-right" t-if="o.state in ('draft', 'sent')">
+                    <span t-field="o.amount_untaxed"
+                        t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                </td>
+            </xpath>
         </template>
     </data>
 </openerp>
