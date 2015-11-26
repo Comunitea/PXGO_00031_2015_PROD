@@ -26,5 +26,10 @@
                 <p t-field="o.date_order" t-field-options='{"format": "dd/MM/y"}'/>
             </xpath>
         </template>
+
+        <template id="report_purchasequotation_document_regards" inherit_id="purchase.report_purchasequotation_document">
+            <xpath expr="//span[text()='Regards,']" position="replace">
+            </xpath>
+        </template>
     </data>
 </openerp>
