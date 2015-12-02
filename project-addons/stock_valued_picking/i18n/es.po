@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* stock_valued_picking
+#   * stock_valued_picking
 #
 msgid ""
 msgstr ""
@@ -62,8 +62,8 @@ msgstr "Pedido"
 
 #. module: stock_valued_picking
 #: view:website:stock_valued_picking.report_valued_picking
-msgid "Order (Origin)"
-msgstr "Pedido (Origen)"
+msgid "Origin"
+msgstr "Origen"
 
 #. module: stock_valued_picking
 #: model:ir.model,name:stock_valued_picking.model_stock_picking

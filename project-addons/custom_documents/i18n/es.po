@@ -92,8 +92,8 @@ msgstr "Pedido"
 
 #. module: custom_documents
 #: view:website:custom_documents.report_picking_custom
-msgid "Order (Origin)"
-msgstr "Pedido (Origen)"
+msgid "Origin"
+msgstr "Origen"
 
 #. module: custom_documents
 #: view:website:sale.report_saleorder_document

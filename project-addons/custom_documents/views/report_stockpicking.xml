@@ -24,7 +24,7 @@
                              <table class="table table-condensed">
                                 <thead>
                                     <tr>
-                                        <th><strong>Order (Origin)</strong></th>
+                                        <th><strong>Origin</strong></th>
                                         <th t-if="o.supplier_ref and o.picking_type_code == 'incoming'"><strong>Supplier Reference</strong></th>
                                         <th t-if="o.sale_id.client_order_ref"><strong>Reference</strong></th>
                                         <th t-if="o.date_done"><strong>Date</strong></th>
