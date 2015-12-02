@@ -21,6 +21,9 @@
                 <field name="origin" position="after">
                     <field name="supplier_ref" attrs="{'invisible': [('picking_type_code', '!=', 'incoming')]}"/>
                 </field>
+                <field name="date_done" position="replace">
+                    <field name="date_done"/>
+                </field>
             </field>
         </record>
 
