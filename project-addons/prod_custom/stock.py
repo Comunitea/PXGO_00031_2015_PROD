@@ -29,6 +29,8 @@ class StockPicking(models.Model):
     supplier_ref = fields.Char('Supplier reference')
     stock_picking_pair = fields.Many2one('stock.picking', 'Stock Picking Pair',
                                          compute='_get_stock_picking_pair')
+    partner_id = fields.Many2one(states={'done': [('readonly', False)],
+                                         'cancel': [('readonly', True)]})
 
     @api.model
     def _get_invoice_vals(self, key, inv_type, journal_id, move):
