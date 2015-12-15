@@ -30,3 +30,8 @@ msgstr "Cuenta analítica"
 #: view:product.template:prod_custom.product_template_kanban_stock_view
 msgid "Available:"
 msgstr "Disponible:"
+
+#. module: prod_custom
+#: field:product.product,price_unit_distribution:0
+msgid "Distribution price unit"
+msgstr "Precio de distribución"
