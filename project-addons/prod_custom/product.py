@@ -26,4 +26,11 @@ class ProductProduct(models.Model):
 
     _inherit = 'product.product'
 
-    price_unit_distribution = fields.Float('Distribution price unit', digits=dp.get_precision('Product Price'))
+    price_unit_distribution = fields.Float(
+        'Distribution price unit', digits=dp.get_precision('Product Price'))
+    sales_count = fields.Integer(compute='_sales_count')
+
+    @api.one
+    def _sales_count(self):
+        self.sales_count = self.env['sale.order'].search_count(
+            [('order_line.product_id', '=', self.id)])
