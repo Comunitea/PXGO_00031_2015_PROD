@@ -7,6 +7,7 @@
             </xpath>
             <xpath expr="//div[@t-field='company.partner_id']/.." position="after">
                 <div t-if="o._name == 'account.invoice' and o.name" class ="col-xs-5 col-xs-offset-4 first-page">
+                    <strong>Your order number</strong>
                     <h3>
                         <span t-field="o.name"/>
                     </h3>

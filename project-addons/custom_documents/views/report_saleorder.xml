@@ -33,6 +33,10 @@
                 <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
             </xpath>
 
+            <xpath expr="//tr[@t-foreach='o.order_line']/td[2]" position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+
             <xpath expr="//tr[@class='border-black'][1]" position="attributes">
                 <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
             </xpath>

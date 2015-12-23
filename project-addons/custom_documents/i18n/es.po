@@ -188,6 +188,7 @@ msgstr "NIF:"
 
 #. module: custom_documents
 #: view:website:account.report_invoice_document
+#: view:website:report.external_layout_header
 msgid "Your order number"
 msgstr "Su nº de pedido"
 

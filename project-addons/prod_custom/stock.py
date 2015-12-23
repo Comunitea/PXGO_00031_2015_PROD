@@ -31,6 +31,8 @@ class StockPicking(models.Model):
                                          compute='_get_stock_picking_pair')
     partner_id = fields.Many2one(states={'done': [('readonly', False)],
                                          'cancel': [('readonly', True)]})
+    date_done = fields.Datetime(states={'done': [('readonly', False)],
+                                         'cancel': [('readonly', True)]})
 
     @api.model
     def _get_invoice_vals(self, key, inv_type, journal_id, move):
