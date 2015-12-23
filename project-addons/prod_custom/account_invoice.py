@@ -27,6 +27,8 @@ class account_invoice(models.Model):
 
     _inherit = 'account.invoice'
 
+    date_invoice = fields.Date(states={'draft': [('readonly', False)], 'proforma': [('readonly', False)], 'proforma2': [('readonly', False)]})
+
     @api.multi
     def onchange_partner_id(self, type, partner_id, date_invoice=False,
                             payment_term=False, partner_bank_id=False,
