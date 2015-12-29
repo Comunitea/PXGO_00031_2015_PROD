@@ -21,6 +21,11 @@ msgid "Address:"
 msgstr "Dirección:"
 
 #. module: custom_documents
+#: view:website:account.report_invoice_document
+msgid "Purchase order:"
+msgstr "Pedido:"
+
+#. module: custom_documents
 #: view:website:report.external_layout_footer
 msgid "C.I.F"
 msgstr "C.I.F"
@@ -29,6 +34,16 @@ msgstr "C.I.F"
 #: view:website:report.external_layout_header
 msgid "Cancelled Invoice"
 msgstr "Factura cancelada"
+
+#. module: custom_documents
+#: view:account.invoice:custom_documents.account_invoice_add_sale_id
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: custom_documents
+#: view:account.invoice:custom_documents.account_invoice_add_purchase_id
+msgid "Purchases"
+msgstr "Compras"
 
 #. module: custom_documents
 #: view:website:custom_documents.report_picking_custom

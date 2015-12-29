@@ -23,6 +23,14 @@
                 </p>
             </xpath>
             <xpath expr="//div[@t-if='o.name']" position="replace">
+                <!--div class="col-xs-2" t-if="o.purchase_id">
+                    <strong>Purchase order:</strong>
+                    <p t-field="o.purchase_id"/>
+                </div>
+                <div class="col-xs-2" t-if="o.sale_id">
+                    <strong>Sale order:</strong>
+                    <p t-field="o.sale_id"/>
+                </div-->
             </xpath>
             <xpath expr="//div[@t-if='o.reference']/strong" position="replace">
                 <strong>Your order number</strong>

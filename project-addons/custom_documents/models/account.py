@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 Pexego All Rights Reserved
-#    $Jesús Ventosinos Mayor <jesus@pexego.es>$
+#    Copyright (C) 2015 Comunitea All Rights Reserved
+#    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,19 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'Custom documents',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Pexego',
-    'website': '',
-    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
-                'account_payment_partner', 'sale', 'report_qweb_element_page_visibility'],
-    "data": ['views/footer.xml', 'views/header.xml',
-             'views/report_purchaseorder.xml', 'views/report_invoice.xml',
-             'views/report_saleorder.xml', 'views/report_stockpicking.xml',
-             'views/sale.xml', 'views/stock.xml', 'views/account.xml',
-             'data/report_paperformat.xml'],
-    "installable": True
-}
+from openerp import models, fields, api, exceptions, _
+
+
+class AccountInvoice(models.Model):
+
+    _inherit = 'account.invoice'
+
+    purchase_ids = fields.Many2many('purchase.order', 'purchase_invoice_rel',
+                                    'invoice_id', 'purchase_id',
+                                    'Purchase orders', readonly=True)
+    sale_ids = fields.Many2many('sale.order', 'sale_order_invoice_rel',
+                                'invoice_id', 'order_id', 'Sale orders',
+                                readonly=True)
