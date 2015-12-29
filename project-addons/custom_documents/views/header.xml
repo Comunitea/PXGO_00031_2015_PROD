@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <template id="custom_style" inherit_id="report.layout">
+            <xpath expr="//head" position="inside">
+                <style>
+                    .row-eq-height{
+                        display: -webkit-box !important;
+                        display: -webkit-flex !important;
+                        display: -ms-flexbox !important;
+                        display: flex !important;
+                    }
+                </style>
+            </xpath>
+        </template>
         <template id="custom_header" inherit_id="report.external_layout_header">
             <xpath expr="//img" position="replace">
                 <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 60px;"/>
             </xpath>
             <xpath expr="//div[@t-field='company.partner_id']/.." position="after">
                 <div t-if="o._name == 'account.invoice' and o.name" class ="col-xs-5 col-xs-offset-4 first-page">
-                    <strong>Your order number</strong>
-                    <h3>
-                        <span t-field="o.name"/>
-                    </h3>
+                    <strong>Your order number</strong> <span style="font-size: 1.70em; font-weight: bold;" t-field="o.name"/>
                 </div>
             </xpath>
         </template>
