@@ -26,6 +26,11 @@ msgid "Purchase order:"
 msgstr "Pedido:"
 
 #. module: custom_documents
+#: view:website:account.report_invoice_document
+msgid "Sale order:"
+msgstr "Pedido:"
+
+#. module: custom_documents
 #: view:website:report.external_layout_footer
 msgid "C.I.F"
 msgstr "C.I.F"

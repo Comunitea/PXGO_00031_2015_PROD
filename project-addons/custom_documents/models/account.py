@@ -31,3 +31,13 @@ class AccountInvoice(models.Model):
     sale_ids = fields.Many2many('sale.order', 'sale_order_invoice_rel',
                                 'invoice_id', 'order_id', 'Sale orders',
                                 readonly=True)
+    purchase_str = fields.Char('Purchase orders str', compute='_get_purchase_str')
+    sale_str = fields.Char('Sale orders str', compute='_get_sale_str')
+
+    @api.one
+    def _get_purchase_str(self):
+        self.purchase_str = ', '.join([x.name for x in self.purchase_ids])
+
+    @api.one
+    def _get_sale_str(self):
+        self.sale_str = ', '.join([x.name for x in self.sale_ids])
