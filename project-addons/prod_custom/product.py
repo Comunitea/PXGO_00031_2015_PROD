@@ -34,3 +34,12 @@ class ProductProduct(models.Model):
     def _sales_count(self):
         self.sales_count = self.env['sale.order'].search_count(
             [('order_line.product_id', '=', self.id)])
+
+
+class ProductTemplate(models.Model):
+
+    _inherit = 'product.template'
+
+    _defaults = {
+        'type' : 'product',
+    }
