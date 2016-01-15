@@ -61,7 +61,7 @@ class stock_transfer_details(models.TransientModel):
 
     @api.one
     def do_detailed_transfer(self):
-        if self.picking_id.picking_type_code != 'in':
+        if self.picking_id.picking_type_code != 'incoming':
             for line in self.item_ids:
                 quant_vals = [('product_id', '=', line.product_id.id),
                               ('lot_id', '=', line.lot_id and line.lot_id.id or
