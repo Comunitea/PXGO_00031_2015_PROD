@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2015 Comunitea All Rights Reserved
-#    $Kiko Sánchez <kiko@comunitea.com>$
+#    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -17,30 +17,27 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#
 ##############################################################################
-from openerp import models, fields, api, exceptions
+from openerp import models, fields, api, exceptions, _
 
 
 class StockPicking(models.Model):
 
     _inherit = 'stock.picking'
 
-    @api.multi
-    @api.depends('origin')
-    def _get_stock_picking_pair(self):
-        for stocks in self:
-            if stocks.id:
-                stocks.stock_picking_pair=""
-                stock_pick_pool= self.env['stock.picking'].search([('origin', '=', stocks.origin), ('id', '!=', stocks.id)])
-                if stock_pick_pool:
-                    stocks.stock_picking_pair= stock_pick_pool[0]
-                else:
-                    stock_pick_pool= self.env['stock.picking'].search([('name', '=', stocks.origin), ('id', '!=', stocks.id)])
-                    if stock_pick_pool:
-                        stocks.stock_picking_pair= stock_pick_pool[0]
+    is_return_picking = fields.Boolean('Is return picking', compute='_get_is_returned_picking')
+
+    @api.one
+    def _get_is_returned_picking(self):
+        self.is_return_picking = len([True for x in self.move_lines if x.origin_returned_move_id]) > 0
 
 
+class stock_transfer_details_items(models.TransientModel):
+    _inherit = 'stock.transfer_details_items'
 
-    stock_picking_pair = fields.Many2one('stock.picking', 'Stock Picking Pair', compute=_get_stock_picking_pair)
-    #supplier_ref = fields.Char('Supplier reference')
+    move_name = fields.Char('Description', compute='_get_move_name')
+
+    @api.one
+    def _get_move_name(self):
+        if self.packop_id.linked_move_operation_ids:
+            self.move_name = self.packop_id.linked_move_operation_ids[0].move_id.name

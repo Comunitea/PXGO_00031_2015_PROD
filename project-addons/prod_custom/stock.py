@@ -19,6 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
+from lxml import etree
 
 
 class StockPicking(models.Model):
@@ -26,9 +27,33 @@ class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
     supplier_ref = fields.Char('Supplier reference')
+    stock_picking_pair = fields.Many2one('stock.picking', 'Stock Picking Pair',
+                                         compute='_get_stock_picking_pair')
+    partner_id = fields.Many2one(states={'done': [('readonly', False)],
+                                         'cancel': [('readonly', True)]})
+    date_done = fields.Datetime(states={'done': [('readonly', False)],
+                                         'cancel': [('readonly', True)]})
 
     @api.model
     def _get_invoice_vals(self, key, inv_type, journal_id, move):
-        res = super(StockPicking, self)._get_invoice_vals(key, inv_type, journal_id, move)
+        res = super(StockPicking, self)._get_invoice_vals(key, inv_type,
+                                                          journal_id, move)
         res['supplier_picking_ref'] = move.picking_id.supplier_ref
         return res
+
+    @api.multi
+    @api.depends('origin')
+    def _get_stock_picking_pair(self):
+        for stocks in self:
+            if stocks.id and stocks.origin:
+                stocks.stock_picking_pair = ""
+                stock_pick_pool = self.env['stock.picking'].search(
+                    [('origin', '=', stocks.origin), ('id', '!=', stocks.id)])
+                if stock_pick_pool:
+                    stocks.stock_picking_pair = stock_pick_pool[0]
+                else:
+                    stock_pick_pool = self.env['stock.picking'].search(
+                        [('name', '=', stocks.origin),
+                         ('id', '!=', stocks.id)])
+                    if stock_pick_pool:
+                        stocks.stock_picking_pair = stock_pick_pool[0]

@@ -26,4 +26,3 @@ class SaleOrder(models.Model):
 
     _inherit = 'sale.order'
     delivery_date = fields.Date('Delivery Date')
-    #supplier_ref = fields.Char('Supplier reference')

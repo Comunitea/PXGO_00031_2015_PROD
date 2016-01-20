@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-26 10:41+0000\n"
-"PO-Revision-Date: 2015-03-26 10:41+0000\n"
+"POT-Creation-Date: 2015-11-06 12:40+0000\n"
+"PO-Revision-Date: 2015-11-06 12:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,69 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: custom_documents
+#: view:website:account.report_invoice_document
+msgid "Purchase order:"
+msgstr "Pedido:"
+
+#. module: custom_documents
+#: view:website:account.report_invoice_document
+msgid "Sale order:"
+msgstr "Pedido:"
+
+#. module: custom_documents
 #: view:website:report.external_layout_footer
 msgid "C.I.F"
 msgstr "C.I.F"
 
 #. module: custom_documents
-#: view:website:base.contact
-msgid "Fax:"
-msgstr "Fax:"
+#: view:website:report.external_layout_header
+msgid "Cancelled Invoice"
+msgstr "Factura cancelada"
+
+#. module: custom_documents
+#: view:account.invoice:custom_documents.account_invoice_add_sale_id
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: custom_documents
+#: view:account.invoice:custom_documents.account_invoice_add_purchase_id
+msgid "Purchases"
+msgstr "Compras"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Date"
+msgstr "Fecha"
+
+#. module: custom_documents
+#: field:sale.order,date_order_without_hour:0
+msgid "Date order"
+msgstr "Fecha pedido"
+
+#. module: custom_documents
+#: view:website:sale.report_saleorder_document
+msgid "Delivery Date:"
+msgstr "Fecha de envío:"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Draft Invoice"
+msgstr "Factura borrador"
+
+#. module: custom_documents
+#: model:ir.model,name:custom_documents.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
 
 #. module: custom_documents
 #: view:website:report.external_layout_footer
@@ -31,14 +86,44 @@ msgid "Inscrito en el Registro Mercantil de"
 msgstr "Inscrito en el Registro Mercantil de"
 
 #. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: custom_documents
 #: view:website:account.report_invoice_document
 msgid "Maturity:"
 msgstr "Vencimiento:"
 
 #. module: custom_documents
-#: view:website:base.contact
-msgid "Mobile:"
-msgstr "Móvil:"
+#: view:website:sale.report_saleorder_document
+msgid "Notes"
+msgstr "Notas"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Nº serie"
+msgstr "Nº serie"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Order"
+msgstr "Pedido"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Origin"
+msgstr "Origen"
+
+#. module: custom_documents
+#: view:website:sale.report_saleorder_document
+msgid "Order N°"
+msgstr "Pedido Nº"
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "PRO-FORMA"
+msgstr "PRO-FORMA"
 
 #. module: custom_documents
 #: view:website:account.report_invoice_document
@@ -46,9 +131,86 @@ msgid "Payment mode:"
 msgstr "Modo de pago:"
 
 #. module: custom_documents
-#: view:website:base.contact
-msgid "Phone:"
-msgstr "Teléfono:"
+#: model:ir.model,name:custom_documents.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: custom_documents
+#: model:ir.model,name:custom_documents.model_stock_transfer_details_items
+msgid "Picking wizard items"
+msgstr "Elementos del asistente de albarán"
+
+#. module: custom_documents
+#: view:website:purchase.report_purchaseorder_document
+msgid "Purchase Order Confirmation N°"
+msgstr "Confirmación pedido de compra Nº"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: custom_documents
+#: view:website:sale.report_saleorder_document
+msgid "Quotation N°"
+msgstr "Presupuesto Nº"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Refund"
+msgstr "Factura rectificativa"
+
+#. module: custom_documents
+#: view:website:purchase.report_purchaseorder_document
+msgid "Request for Quotation N°"
+msgstr "Solicitud de presupuesto Nº"
+
+#. module: custom_documents
+#: model:ir.model,name:custom_documents.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Supplier Invoice"
+msgstr "Factura de proveedor"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+msgid "Supplier Reference"
+msgstr "Referencia de proveedor"
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Supplier Refund"
+msgstr "Factura rectificativa de proveedor"
+
+#. module: custom_documents
+#: field:sale.order,title:0
+msgid "Title"
+msgstr "Título"
+
+#. module: custom_documents
+#: view:website:custom_documents.report_picking_custom
+#: view:website:purchase.report_purchaseorder_document
+msgid "VAT:"
+msgstr "NIF:"
+
+#. module: custom_documents
+#: view:website:account.report_invoice_document
+#: view:website:report.external_layout_header
+msgid "Your order number"
+msgstr "Su nº de pedido"
 
 #. module: custom_documents
 #: view:website:report.external_layout_footer
@@ -61,7 +223,13 @@ msgid "hoja"
 msgstr "hoja"
 
 #. module: custom_documents
+#: view:website:sale.report_saleorder_document
+msgid "o.state not in ('draft', 'sent')"
+msgstr "o.state not in ('draft', 'sent')"
+
+#. module: custom_documents
 #: view:website:report.external_layout_footer
 msgid "tomo"
 msgstr "tomo"
+
 

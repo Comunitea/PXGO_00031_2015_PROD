@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 Pexego All Rights Reserved
-#    $Jesús Ventosinos Mayor <jesus@pexego.es>$
+#    Copyright (C) 2015 Comunitea All Rights Reserved
+#    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,19 +18,28 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'Custom documents',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Pexego',
-    'website': '',
-    "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
-                'account_payment_partner', 'sale', 'report_qweb_element_page_visibility'],
-    "data": ['views/footer.xml', 'views/header.xml',
-             'views/report_purchaseorder.xml', 'views/report_invoice.xml',
-             'views/report_saleorder.xml', 'views/report_stockpicking.xml',
-             'views/sale.xml', 'views/stock.xml', 'views/account.xml',
-             'data/report_paperformat.xml'],
-    "installable": True
-}
+from openerp import models, fields, api, exceptions, _
+import openerp.addons.decimal_precision as dp
+
+
+class ProductProduct(models.Model):
+
+    _inherit = 'product.product'
+
+    price_unit_distribution = fields.Float(
+        'Distribution price unit', digits=dp.get_precision('Product Price'))
+    sales_count = fields.Integer(compute='_sales_count')
+
+    @api.one
+    def _sales_count(self):
+        self.sales_count = self.env['sale.order'].search_count(
+            [('order_line.product_id', '=', self.id)])
+
+
+class ProductTemplate(models.Model):
+
+    _inherit = 'product.template'
+
+    _defaults = {
+        'type' : 'product',
+    }

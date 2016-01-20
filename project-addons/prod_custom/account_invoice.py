@@ -22,18 +22,20 @@
 
 from openerp import models, fields, api, exceptions
 
+
 class account_invoice(models.Model):
 
     _inherit = 'account.invoice'
+
+    date_invoice = fields.Date(states={'draft': [('readonly', False)], 'proforma': [('readonly', False)], 'proforma2': [('readonly', False)]})
 
     @api.multi
     def onchange_partner_id(self, type, partner_id, date_invoice=False,
                             payment_term=False, partner_bank_id=False,
                             company_id=False):
 
-        #import ipdb; ipdb.set_trace()
-
-        user_id = self.env['res.partner'].search([('id','=',partner_id)]).user_id or self.env.user
+        user_id = self.env['res.partner'].search(
+            [('id', '=', partner_id)]).user_id or self.env.user
 
         res = super(account_invoice,
                     self).onchange_partner_id(type,
@@ -44,5 +46,5 @@ class account_invoice(models.Model):
                                               company_id=company_id)
 
         if partner_id:
-            res['value']['user_id']= user_id
+            res['value']['user_id'] = user_id
         return res

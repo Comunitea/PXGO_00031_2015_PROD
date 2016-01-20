@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* prod_custom
+#   * prod_custom
 #
 msgid ""
 msgstr ""
@@ -21,4 +21,29 @@ msgstr ""
 msgid "Supplier reference"
 msgstr "Albarán de proveedor"
 
+#. module: prod_custom
+#: field:stock.transfer_details_items,account_analytic_id:0
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
 
+#. module: prod_custom
+#: code:addons/prod_custom/wizard/stock_transfer_details.py:83
+#, python-format
+msgid "Quantity error"
+msgstr "Error de stock"
+
+#. module: prod_custom
+#: code:addons/prod_custom/wizard/stock_transfer_details.py:84
+#, python-format
+msgid "Not found enought stock in %s for product %s"
+msgstr "No hay suficiente stock en %s del producto %s"
+
+#. module: prod_custom
+#: view:product.template:prod_custom.product_template_kanban_stock_view
+msgid "Available:"
+msgstr "Disponible:"
+
+#. module: prod_custom
+#: field:product.product,price_unit_distribution:0
+msgid "Distribution price unit"
+msgstr "Precio de distribución"

@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!--template id="delivery.report_shipping2" inherit_id="stock.report_picking" /-->
 
-        <template id="stock.report_picking" >
-             <t t-call="report.html_container">
+        <template id="report_picking_custom" >
+            <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="report.external_layout">
                         <div class="page">
                              <div class="row">
                                 <div class="col-xs-5 col-xs-offset-7">
-                                     <div t-if="o.picking_type_id.code=='incoming' and o.partner_id">
-                                         <span><strong>Supplier Address:</strong></span>
-                                     </div>
-                                     <div t-if="o.picking_type_id.code=='internal' and o.partner_id">
-                                         <span><strong>Warehouse Address:</strong></span>
-                                     </div>
-                                     <div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
-                                         <span><strong>Customer Address:</strong></span>
-                                     </div>
+                                    <span><strong>Address:</strong></span>
                                      <div t-if="o.partner_id" name="partner_header">
                                          <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
                                         <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
@@ -33,13 +24,11 @@
                              <table class="table table-condensed">
                                 <thead>
                                     <tr>
-                                        <th><strong>Order (Origin)</strong></th>
+                                        <th><strong>Origin</strong></th>
                                         <th t-if="o.supplier_ref and o.picking_type_code == 'incoming'"><strong>Supplier Reference</strong></th>
                                         <th t-if="o.sale_id.client_order_ref"><strong>Reference</strong></th>
-
-
-
                                         <th t-if="o.date_done"><strong>Date</strong></th>
+                                        <th t-if="o.is_return_picking"><strong>Order</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,9 +42,11 @@
                                         <td t-if="o.sale_id.client_order_ref">
                                             <span t-field="o.sale_id.client_order_ref"/>
                                         </td>
-
                                          <td t-if="o.date_done">
                                             <span t-field="o.date_done" t-field-options="{&quot;format&quot;: &quot;dd/MM/y&quot;}"/>
+                                        </td>
+                                        <td t-if="o.is_return_picking">
+                                            <span t-field="o.group_id"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -84,7 +75,7 @@
                                         </tr>
                                     </span>
                                     <span t-if="o.state == 'done' ">
-                                        <tr t-foreach="o.pack_operation_ids" t-as="operation">
+                                        <tr t-foreach="o.pack_operation_ids.sorted(key=lambda r: r.product_id.id)" t-as="operation">
 
                                                 <td><span t-field="operation.product_id.default_code"/></td>
                                                 <td><span t-field="operation. linked_move_operation_ids[0].move_id.name"/></td>
@@ -100,9 +91,18 @@
                             </span>
                         </div>
                     </t>
-                 </t>
-             </t>
+                </t>
+            </t>
         </template>
-    </data>
 
+        <report
+            string="Picking"
+            id="stock.action_report_picking"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="custom_documents.report_picking_custom"
+            file="custom_documents.report_picking_custom"
+        />
+
+    </data>
 </openerp>

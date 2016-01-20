@@ -18,7 +18,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from . import stock, stock_picking
+from . import wizard
+from . import stock
 from . import sale_order
 from . import account_invoice
+from . import product
