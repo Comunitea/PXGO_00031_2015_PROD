@@ -127,6 +127,11 @@ msgstr "PRO-FORMA"
 
 #. module: custom_documents
 #: view:website:account.report_invoice_document
+msgid "Swift code:"
+msgstr "Código Swift:"
+
+#. module: custom_documents
+#: view:website:account.report_invoice_document
 msgid "Payment mode:"
 msgstr "Modo de pago:"
 
