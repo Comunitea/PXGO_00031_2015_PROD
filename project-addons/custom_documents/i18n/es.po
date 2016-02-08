@@ -26,6 +26,11 @@ msgid "Purchase order:"
 msgstr "Pedido:"
 
 #. module: custom_documents
+#: model:ir.actions.report.xml,name:custom_documents.report_sale_order
+msgid "Quotation / Order without total"
+msgstr "Presupuesto / Pedido sin total"
+
+#. module: custom_documents
 #: view:website:account.report_invoice_document
 msgid "Sale order:"
 msgstr "Pedido:"

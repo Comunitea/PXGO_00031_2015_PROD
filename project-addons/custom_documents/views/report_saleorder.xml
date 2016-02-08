@@ -20,6 +20,10 @@
                 </div>
             </xpath>
 
+            <xpath expr="//div[@class='col-xs-6']/.." position="attributes">
+                <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+
             <xpath expr="//p[@t-field='o.note']" position="before">
                 <strong t-if="o.note">Notes</strong>
             </xpath>
@@ -46,6 +50,9 @@
 
             <xpath expr="//span[@t-field='o.amount_total']/.." position="attributes">
                 <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.amount_total']/../../.." position="attributes">
+                <attribute name="t-if">not not_total</attribute>
             </xpath>
             <xpath expr="//span[@t-field='o.amount_total']/.." position="after">
                 <td class="text-right" t-if="o.state in ('draft', 'sent')">

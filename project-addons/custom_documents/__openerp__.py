@@ -32,6 +32,6 @@
              'views/report_purchaseorder.xml', 'views/report_invoice.xml',
              'views/report_saleorder.xml', 'views/report_stockpicking.xml',
              'views/sale.xml', 'views/stock.xml', 'views/account.xml',
-             'data/report_paperformat.xml'],
+             'data/report_paperformat.xml', 'sale_report.xml'],
     "installable": True
 }
