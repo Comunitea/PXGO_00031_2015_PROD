@@ -26,11 +26,12 @@
     'author': 'Pexego',
     'website': '',
     "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
-                'account_payment_partner', 'sale', 'report_qweb_element_page_visibility'],
+                'account_payment_partner', 'sale',
+                'report_qweb_element_page_visibility'],
     "data": ['views/footer.xml', 'views/header.xml',
              'views/report_purchaseorder.xml', 'views/report_invoice.xml',
              'views/report_saleorder.xml', 'views/report_stockpicking.xml',
              'views/sale.xml', 'views/stock.xml', 'views/account.xml',
-             'data/report_paperformat.xml'],
+             'data/report_paperformat.xml', 'sale_report.xml'],
     "installable": True
 }

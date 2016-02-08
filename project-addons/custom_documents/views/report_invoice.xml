@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="report_invoice_document_custom" inherit_id="account.report_invoice_document">
-            <xpath expr="//p[@t-if='o.payment_term.note']" position="after">
+
+        <template id="report_invoice_payment_mode_custom" inherit_id="account_payment_partner.report_invoice_payment_mode">
+            <xpath expr="//p[@t-if='o.partner_bank_id']/span" position="after">
+                    <strong> Swift code: </strong>
+                    <span t-field="o.partner_bank_id.bank_bic"/>
+            </xpath>
+            <xpath expr="//p[@t-if='o.payment_mode_id.note']" position="replace">
                 <p t-if="o.payment_mode_id">
                     <strong>Payment mode:</strong>
                     <span t-field="o.payment_mode_id.name"/>
                 </p>
+
+            </xpath>
+        </template>
+
+        <template id="report_invoice_document_custom" inherit_id="account.report_invoice_document">
+            <xpath expr="//p[@t-if='o.payment_term.note']" position="after">
                 <p t-if="o.move_id">
                     <strong>Maturity:</strong>
                     <span t-foreach="o.move_id.line_id" t-as="ml">
