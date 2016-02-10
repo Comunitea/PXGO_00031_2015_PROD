@@ -27,7 +27,7 @@
     'website': '',
     "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
                 'account_payment_partner', 'sale',
-                'report_qweb_element_page_visibility'],
+                'report_qweb_element_page_visibility', 'sale_layout'],
     "data": ['views/footer.xml', 'views/header.xml',
              'views/report_purchaseorder.xml', 'views/report_invoice.xml',
              'views/report_saleorder.xml', 'views/report_stockpicking.xml',
