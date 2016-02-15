@@ -24,6 +24,15 @@
                 <attribute name="t-if">o.state not in ('draft', 'sent')</attribute>
             </xpath>
 
+            <xpath expr="//div[@class='col-xs-6']/.." position="after">
+                <div class="row" t-if="o.state in ('draft', 'sent')">
+                    <div class="col-xs-5 col-xs-offset-7">
+                        <div t-field="o.partner_id"
+                            t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                    </div>
+                </div>
+            </xpath>
+
             <xpath expr="//p[@t-field='o.note']" position="before">
                 <strong t-if="o.note">Notes</strong>
             </xpath>
