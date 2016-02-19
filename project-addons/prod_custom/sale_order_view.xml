@@ -13,6 +13,17 @@
             </field>
         </record>
 
+        <record id="view_sale_order_calendar_delivery_date" model="ir.ui.view">
+            <field name="name">sale.order.calendar</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sale_order_calendar"/>
+            <field name="arch" type="xml">
+                <calendar position="attributes">
+                    <attribute name="date_start">delivery_date</attribute>
+                </calendar>
+            </field>
+        </record>
+
         <record id="sale.action_quotations" model="ir.actions.act_window">
             <field name="context">{}</field>
         </record>

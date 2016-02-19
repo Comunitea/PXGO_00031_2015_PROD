@@ -13,5 +13,18 @@
            </field>
        </record>
 
+
+        <record id="view_invoice_line_calendar_date_due" model="ir.ui.view">
+            <field name="name">account.invoice.calendar</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_invoice_line_calendar"/>
+            <field name="arch" type="xml">
+                <calendar position="attributes">
+                    <attribute name="date_start">date_due</attribute>
+                </calendar>
+            </field>
+        </record>
+
+
     </data>
 </openerp>
