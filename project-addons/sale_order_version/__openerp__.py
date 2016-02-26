@@ -27,6 +27,6 @@
     'author': 'Pexego',
     'website': '',
     "depends": ['sale'],
-    "data": ['sale_view.xml'],
+    "data": ['sale_view.xml', 'security/sale_security.xml'],
     "installable": True
 }

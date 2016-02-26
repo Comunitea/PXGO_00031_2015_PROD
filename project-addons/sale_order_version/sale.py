@@ -86,7 +86,8 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     active = fields.Boolean('Active', default=True)
-
+    user_id = fields.Many2one('res.users', '', related='order_id.user_id',
+                              store=True)
 
 class sale_report(models.Model):
     _inherit = "sale.report"
