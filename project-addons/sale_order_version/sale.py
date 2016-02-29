@@ -29,8 +29,6 @@ class SaleOrder(models.Model):
     base_version = fields.Many2one('sale.order', 'Base version', copy=False)
     version_ids = fields.One2many('sale.order', compute='_get_versions', string='Versions')
     active = fields.Boolean('Active', default=True)
-
-
     name = fields.Char(states={'draft': [('readonly', False)]})
     date_order = fields.Datetime(states={'draft': [('readonly', False)]})
     user_id = fields.Many2one(states={'draft': [('readonly', False)]})
@@ -79,6 +77,23 @@ class SaleOrder(models.Model):
             res.base_version = res.id
         return res
 
+    @api.multi
+    def action_button_confirm(self):
+        if not self.active:
+            raise exceptions.Warning(_('Order versioned'), _('can not confirm an order with new versions'))
+        return super(SaleOrder, self).action_button_confirm()
+
+    @api.multi
+    def print_quotation(self):
+        if not self.active:
+            raise exceptions.Warning(_('Order versioned'), _('can not print an order with new versions'))
+        return super(SaleOrder, self).print_quotation()
+
+    @api.multi
+    def action_quotation_send(self):
+        if not self.active:
+            raise exceptions.Warning(_('Order versioned'), _('can not send an order with new versions'))
+        return super(SaleOrder, self).action_quotation_send()
 
 
 class SaleOrderLine(models.Model):

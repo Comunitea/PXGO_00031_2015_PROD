@@ -32,6 +32,15 @@ msgid "New version of order"
 msgstr "Nueva versión del pedido"
 
 #. module: sale_order_version
+#: code:addons/sale_order_version/sale.py:83
+#: code:addons/sale_order_version/sale.py:89
+#: code:addons/sale_order_version/sale.py:95
+#, python-format
+msgid "Order versioned"
+msgstr "Pedido versionado"
+
+
+#. module: sale_order_version
 #: model:ir.model,name:sale_order_version.model_sale_order
 msgid "Sales Order"
 msgstr "Pedido de venta"
@@ -55,4 +64,23 @@ msgstr "Versión"
 #: view:sale.order:sale_order_version.sale_order_view_form_add_version
 msgid "Versions"
 msgstr "Versiones"
+
+
+#. module: sale_order_version
+#: code:addons/sale_order_version/sale.py:83
+#, python-format
+msgid "can not confirm an order with new versions"
+msgstr "No se puede confirmar un pedido con nuevas versiones"
+
+#. module: sale_order_version
+#: code:addons/sale_order_version/sale.py:89
+#, python-format
+msgid "can not print an order with new versions"
+msgstr "No se puede imprimir un pedido con nuevas versiones"
+
+#. module: sale_order_version
+#: code:addons/sale_order_version/sale.py:95
+#, python-format
+msgid "can not send an order with new versions"
+msgstr "No se puede enviar un pedido con nuevas versiones"
 
