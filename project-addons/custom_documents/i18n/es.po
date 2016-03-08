@@ -66,6 +66,11 @@ msgid "Date order"
 msgstr "Fecha pedido"
 
 #. module: custom_documents
+#: field:sale.order.line,report_only_total:0
+msgid "Only total"
+msgstr "Mostrar solo total"
+
+#. module: custom_documents
 #: view:website:sale.report_saleorder_document
 msgid "Delivery Date:"
 msgstr "Fecha de envío:"

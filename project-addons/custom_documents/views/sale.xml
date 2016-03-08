@@ -13,5 +13,19 @@
            </field>
        </record>
 
+        <record id="view_order_form_only_total" model="ir.ui.view">
+            <field name="name">view.order.form.only.total</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='route_id']" position="before">
+                    <field name="report_only_total"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='route_id']" position="before">
+                    <field name="report_only_total"/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>

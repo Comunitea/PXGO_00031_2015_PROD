@@ -30,6 +30,12 @@ class SaleOrder(models.Model):
                                           compute='_get_date_order_qweb',
                                           store=True)
     title = fields.Char('Title')
+    only_total_all_lines = fields.Boolean(compute='_get_only_total_lines')
+
+    @api.multi
+    def _get_only_total_lines(self):
+        for obj in self:
+            obj.only_total_all_lines = all(obj.mapped('order_line.report_only_total'))
 
     @api.one
     @api.depends('date_order')
@@ -37,3 +43,10 @@ class SaleOrder(models.Model):
         datetime_date_order = datetime.strptime(self.date_order,
                                                 '%Y-%m-%d %H:%M:%S')
         self.date_order_without_hour = datetime_date_order.date()
+
+
+class SaleOrderLine(models.Model):
+
+    _inherit = 'sale.order.line'
+
+    report_only_total = fields.Boolean('Only total')
