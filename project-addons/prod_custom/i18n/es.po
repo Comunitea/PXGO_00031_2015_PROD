@@ -22,6 +22,11 @@ msgid "Supplier reference"
 msgstr "Albarán de proveedor"
 
 #. module: prod_custom
+#: field:sale.order,delivery_date:0
+msgid "Delivery Date"
+msgstr "Fecha de envío"
+
+#. module: prod_custom
 #: field:stock.transfer_details_items,account_analytic_id:0
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
