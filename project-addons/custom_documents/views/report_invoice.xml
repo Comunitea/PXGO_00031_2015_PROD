@@ -7,13 +7,13 @@
                     <strong> Swift code: </strong>
                     <span t-field="o.partner_bank_id.bank_bic"/>
             </xpath>
-            <xpath expr="//p[@t-if='o.payment_mode_id.note']" position="replace">
+            <!--xpath expr="//p[@t-if='o.payment_mode_id.note']" position="replace">
                 <p t-if="o.payment_mode_id">
                     <strong>Payment mode:</strong>
                     <span t-field="o.payment_mode_id.name"/>
                 </p>
 
-            </xpath>
+            </xpath-->
         </template>
 
         <template id="report_invoice_document_custom" inherit_id="account.report_invoice_document">
