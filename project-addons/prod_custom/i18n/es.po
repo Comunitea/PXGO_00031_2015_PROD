@@ -38,12 +38,6 @@ msgid "Quantity error"
 msgstr "Error de stock"
 
 #. module: prod_custom
-#: code:addons/prod_custom/wizard/stock_transfer_details.py:84
-#, python-format
-msgid "Not found enought stock in %s for product %s"
-msgstr "No hay suficiente stock en %s del producto %s"
-
-#. module: prod_custom
 #: view:product.template:prod_custom.product_template_kanban_stock_view
 msgid "Available:"
 msgstr "Disponible:"
