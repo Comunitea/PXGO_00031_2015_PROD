@@ -57,7 +57,9 @@ class SaleOrder(models.Model):
 
     @api.multi
     def create_new_version(self):
-        args = {'version': self.version + 1, 'name': self.base_version.name + ' V' + str(self.version + 1), 'base_version': self.base_version.id}
+        max_version = max([x.version for x in self.version_ids + self])
+        args = {'version': max_version + 1, 'name': self.base_version.name + ' V' + str(max_version + 1),
+                'base_version': self.base_version.id, 'active': True}
         new_version = self.copy(args)
         self.write({'active': False})
         action = self.env.ref('sale.action_quotations')
