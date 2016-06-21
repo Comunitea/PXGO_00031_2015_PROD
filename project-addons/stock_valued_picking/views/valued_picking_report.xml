@@ -130,6 +130,9 @@
                                     </table>
                                 </div>
                             </div>
+                            <span t-if="o.note">
+                                <span t-field="o.note"/>
+                            </span>
                         </div>
                     </t>
                  </t>
