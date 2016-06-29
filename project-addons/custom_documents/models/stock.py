@@ -18,18 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 
 
 class StockPicking(models.Model):
 
     _inherit = 'stock.picking'
 
-    is_return_picking = fields.Boolean('Is return picking', compute='_get_is_returned_picking')
+    is_return_picking = fields.Boolean('Is return picking',
+                                       compute='_get_is_returned_picking')
+    only_total_all_lines = fields.Boolean(compute='_get_only_total_lines')
 
     @api.one
     def _get_is_returned_picking(self):
-        self.is_return_picking = len([True for x in self.move_lines if x.origin_returned_move_id]) > 0
+        self.is_return_picking = len([True for x in self.move_lines
+                                      if x.origin_returned_move_id]) > 0
+
+    @api.multi
+    def _get_only_total_lines(self):
+        for obj in self:
+            obj.only_total_all_lines = all(obj.mapped(
+                'move_lines.report_only_total'))
 
 
 class stock_transfer_details_items(models.TransientModel):
@@ -40,4 +49,19 @@ class stock_transfer_details_items(models.TransientModel):
     @api.one
     def _get_move_name(self):
         if self.packop_id.linked_move_operation_ids:
-            self.move_name = self.packop_id.linked_move_operation_ids[0].move_id.name
+            self.move_name = \
+                self.packop_id.linked_move_operation_ids[0].move_id.name
+
+
+class StockMove(models.Model):
+
+    _inherit = 'stock.move'
+
+    report_only_total = fields.Boolean('Only total')
+
+    @api.model
+    def _get_invoice_line_vals(self, move, partner, inv_type):
+        res = super(StockMove, self)._get_invoice_line_vals(move, partner,
+                                                            inv_type)
+        res['report_only_total'] = move.report_only_total
+        return res

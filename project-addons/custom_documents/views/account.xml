@@ -12,6 +12,9 @@
                         <field name="sale_ids" nolabel="1" colspan="4" col="4"/>
                     </page>
                 </notebook>
+                <field name="quantity" position="after">
+                    <field name="report_only_total"/>
+                </field>
             </field>
         </record>
 

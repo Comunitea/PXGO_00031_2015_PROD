@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 
 
 class AccountInvoice(models.Model):
@@ -31,8 +31,16 @@ class AccountInvoice(models.Model):
     sale_ids = fields.Many2many('sale.order', 'sale_order_invoice_rel',
                                 'invoice_id', 'order_id', 'Sale orders',
                                 readonly=True)
-    purchase_str = fields.Char('Purchase orders str', compute='_get_purchase_str')
+    purchase_str = fields.Char('Purchase orders str',
+                               compute='_get_purchase_str')
     sale_str = fields.Char('Sale orders str', compute='_get_sale_str')
+    only_total_all_lines = fields.Boolean(compute='_get_only_total_lines')
+
+    @api.multi
+    def _get_only_total_lines(self):
+        for obj in self:
+            obj.only_total_all_lines = all(obj.mapped(
+                'invoice_line.report_only_total'))
 
     @api.one
     def _get_purchase_str(self):
@@ -41,3 +49,11 @@ class AccountInvoice(models.Model):
     @api.one
     def _get_sale_str(self):
         self.sale_str = ', '.join([x.name for x in self.sale_ids])
+
+
+class AccountInvoiceLine(models.Model):
+
+    _inherit = 'account.invoice.line'
+
+    report_only_total = fields.Boolean(
+        'Only total')

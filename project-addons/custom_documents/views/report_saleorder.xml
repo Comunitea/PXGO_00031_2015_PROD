@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="report_saleorder_document_custom" inherit_id="sale.report_saleorder_document">
+        <template id="report_saleorder_document_custom" inherit_id="sale_layout.report_sale_layouted">
             <xpath expr="//h2" position="replace">
                 <h3>
                     <span t-if="o.state not in ['draft','sent']">Order N° </span>

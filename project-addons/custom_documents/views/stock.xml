@@ -13,5 +13,16 @@
             </field>
         </record>
 
+        <record id="view_move_picking_form_add_only_total" model="ir.ui.view">
+            <field name="name">stock.move.form</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="date_expected" position="after">
+                    <field name="report_only_total"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>

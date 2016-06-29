@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="custom_valued_picking" inherit_id="stock_valued_picking.report_valued_picking">
+
+            <xpath expr="//strong[text()='Quantity']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines</attribute>
+            </xpath>
+
+            <xpath expr="//strong[text()='Price unit']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='move.order_price_unit']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not move.report_only_total</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='move.product_uom_qty']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not move.report_only_total</attribute>
+            </xpath>
+
+
+            <xpath expr="//span[@t-field='move.order_price_unit']/.." position="after">
+                <td t-if="not o.only_total_all_lines and move.report_only_total"></td>
+            </xpath>
+            <xpath expr="//span[@t-field='move.product_uom_qty']/.." position="after">
+                <td t-if="not o.only_total_all_lines and move.report_only_total"></td>
+            </xpath>
+
+            <xpath expr="//span[@t-field='operation.linked_move_operation_ids[0].move_id.order_price_unit']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not operation.linked_move_operation_ids[0].move_id.report_only_total</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='operation.product_qty']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not operation.linked_move_operation_ids[0].move_id.report_only_total</attribute>
+            </xpath>
+
+
+            <xpath expr="//span[@t-field='operation.linked_move_operation_ids[0].move_id.order_price_unit']/.." position="after">
+                <td t-if="not o.only_total_all_lines and operation.linked_move_operation_ids[0].move_id.report_only_total"></td>
+            </xpath>
+            <xpath expr="//span[@t-field='operation.product_qty']/.." position="after">
+                <td t-if="not o.only_total_all_lines and operation.linked_move_operation_ids[0].move_id.report_only_total"></td>
+            </xpath>
+
+
+        </template>
+
+    </data>
+</openerp>

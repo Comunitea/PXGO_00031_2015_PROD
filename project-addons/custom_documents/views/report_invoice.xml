@@ -16,7 +16,7 @@
             </xpath-->
         </template>
 
-        <template id="report_invoice_document_custom" inherit_id="account.report_invoice_document">
+        <template id="report_invoice_document_custom" inherit_id="sale_layout.report_invoice_layouted">
             <xpath expr="//p[@t-if='o.payment_term.note']" position="after">
                 <p t-if="o.move_id">
                     <strong>Maturity:</strong>
@@ -50,6 +50,38 @@
                     <strong>Reference:</strong>
                     <p t-field="o.reference"/>
                 </div>
+            </xpath>
+
+            <xpath expr="//th[text()='Quantity']" position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines</attribute>
+            </xpath>
+
+            <xpath expr="//th[text()='Unit Price']" position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines</attribute>
+            </xpath>
+            <xpath expr="//th[text()='Discount (%)']" position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='l.discount']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not l.report_only_total</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='l.quantity']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not l.report_only_total</attribute>
+            </xpath>
+
+            <xpath expr="//span[@t-field='l.price_unit']/.." position="attributes">
+                <attribute name="t-if">not o.only_total_all_lines and not l.report_only_total</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='l.discount']/.." position="after">
+                <td groups="sale.group_discount_per_so_line" t-if="not o.only_total_all_lines and l.report_only_total"></td>
+            </xpath>
+            <xpath expr="//span[@t-field='l.quantity']/.." position="after">
+                <td t-if="not o.only_total_all_lines and l.report_only_total"></td>
+            </xpath>
+            <xpath expr="//span[@t-field='l.price_unit']/.." position="after">
+                <td t-if="not o.only_total_all_lines and l.report_only_total"></td>
             </xpath>
         </template>
     </data>

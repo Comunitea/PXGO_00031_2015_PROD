@@ -66,9 +66,18 @@ msgid "Date order"
 msgstr "Fecha pedido"
 
 #. module: custom_documents
+#: field:account.invoice.line,report_only_total:0
 #: field:sale.order.line,report_only_total:0
+#: field:stock.move,report_only_total:0
 msgid "Only total"
 msgstr "Mostrar solo total"
+
+#. module: custom_documents
+#: field:account.invoice,only_total_all_lines:0
+#: field:sale.order,only_total_all_lines:0
+#: field:stock.picking,only_total_all_lines:0
+msgid "Only total all lines"
+msgstr "Only total all lines"
 
 #. module: custom_documents
 #: view:website:sale.report_saleorder_document
@@ -246,5 +255,3 @@ msgstr "o.state not in ('draft', 'sent')"
 #: view:website:report.external_layout_footer
 msgid "tomo"
 msgstr "tomo"
-
-
