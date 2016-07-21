@@ -24,6 +24,17 @@
             </field>
         </record>
 
+        <record id="layout_add_name" model="ir.ui.view" >
+            <field name="name">report.configuration.search.view</field>
+            <field name="model">sale_layout.category</field>
+            <field name="inherit_id" ref="sale_layout.report_configuration_search_view"/>
+            <field name="arch" type="xml">
+                <filter string="Total" position="before">
+                    <field name="name"/>
+                </filter>
+            </field>
+        </record>
+
         <record id="sale.action_quotations" model="ir.actions.act_window">
             <field name="context">{}</field>
         </record>
