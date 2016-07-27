@@ -57,3 +57,10 @@ class StockPicking(models.Model):
                          ('id', '!=', stocks.id)])
                     if stock_pick_pool:
                         stocks.stock_picking_pair = stock_pick_pool[0]
+
+    @api.multi
+    def action_cancel(self):
+        for picking in self:
+            if picking.state != 'done' and picking.pack_operation_ids:
+                picking.pack_operation_ids.unlink()
+        return super(StockPicking, self).action_cancel()
