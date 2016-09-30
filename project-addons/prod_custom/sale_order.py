@@ -26,3 +26,10 @@ class SaleOrder(models.Model):
 
     _inherit = 'sale.order'
     delivery_date = fields.Date('Delivery Date')
+
+    @api.multi
+    def manual_force_done(self):
+        for order in self:
+            order.signal_workflow('ship_end')
+            if order.state != 'done':
+                order.state = 'done'

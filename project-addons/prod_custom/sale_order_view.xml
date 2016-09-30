@@ -11,7 +11,7 @@
                     <field name="delivery_date"/>
                 </field>
                 <button name="action_cancel" position="after">
-                    <button name="ship_end" string="Force order done" states="progress,manual" groups="base.group_no_one" confirm="This action completes the order although there are still invoices and pickings to be ended. Are you sure?"/>
+                    <button type="object" name="manual_force_done" string="Force order done" states="progress,manual" groups="base.group_no_one" confirm="This action completes the order although there are still invoices and pickings to be ended. Are you sure?"/>
                 </button>
             </field>
         </record>
