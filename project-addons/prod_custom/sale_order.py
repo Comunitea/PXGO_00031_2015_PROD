@@ -34,6 +34,13 @@ class SaleOrder(models.Model):
             if order.state != 'done':
                 order.state = 'done'
 
+    @api.multi
+    def onchange_partner_id(self, part):
+        res = super(SaleOrder, self).onchange_partner_id(part)
+        user_id = self.env['res.partner'].browse(part).user_id
+        res['value']['user_id'] = user_id
+        return res
+
 class SaleOrderLine(models.Model):
 
     _inherit = 'sale.order.line'
