@@ -49,11 +49,12 @@ class AccountInvoice(models.Model):
     @api.one
     def _get_sale_str(self):
         sale_names = []
-        for pick in self.origin.split(','):
-            picking_name = pick.replace(' ', '')
-            picking = self.env['stock.picking'].search([('name', '=', picking_name)])
-            if picking and picking.sale_id and picking.sale_id in self.sale_ids:
-                sale_names.append(picking.sale_id.name)
+        if self.origin:
+            for pick in self.origin.split(','):
+                picking_name = pick.replace(' ', '')
+                picking = self.env['stock.picking'].search([('name', '=', picking_name)])
+                if picking and picking.sale_id and picking.sale_id in self.sale_ids:
+                    sale_names.append(picking.sale_id.name)
         sale_names = sale_names + [x.name for x in self.sale_ids if x.name not in sale_names]
         self.sale_str = (', ').join(sale_names)
 
