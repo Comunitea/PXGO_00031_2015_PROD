@@ -38,7 +38,6 @@
             </field>
         </record>
 
-
         <record id="sale_quotation_tree_view_custom" model="ir.ui.view">
             <field name="name">sale.order.tree</field>
             <field name="model">sale.order</field>

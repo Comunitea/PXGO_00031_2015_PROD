@@ -13,5 +13,16 @@
             </field>
         </record>
 
+        <record id="purchase_order_add_force_done_button" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="after">
+                    <button type="object" name="manual_force_done" string="Force order done" states="approved" groups="base.group_no_one" confirm="This action completes the order although there are still invoices and pickings to be ended. Are you sure?"/>
+                </button>
+            </field>
+        </record>
+
     </data>
 </openerp>

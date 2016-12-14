@@ -48,11 +48,13 @@ msgid "Distribution price unit"
 msgstr "Precio de distribución"
 
 #. module: prod_custom
+#: view:purchase.order:prod_custom.purchase_order_add_force_done_button
 #: view:sale.order:prod_custom.view_order_form_delilvery_date
 msgid "Force order done"
 msgstr "Forzar finalizar pedido"
 
 #. module: prod_custom
+#: view:purchase.order:prod_custom.purchase_order_add_force_done_button
 #: view:sale.order:prod_custom.view_order_form_delilvery_date
 msgid "This action completes the order although there are still invoices and pickings to be ended. Are you sure?"
 msgstr "Está acción finalizará el pedido aunque queden facturas y albaranes por finalizar. ¿Está seguro?"
