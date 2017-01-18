@@ -45,12 +45,12 @@
                     <p t-field="o.sale_str"/>
                 </div>
             </xpath>
-            <xpath expr="//div[@t-if='o.reference']" position="replace">
+            <!--xpath expr="//div[@t-if='o.reference']" position="replace">
                 <div class="col-xs-2" t-if="o.reference and o.type!='out_invoice'">
                     <strong>Reference:</strong>
                     <p t-field="o.reference"/>
                 </div>
-            </xpath>
+            </xpath-->
 
             <xpath expr="//th[text()='Quantity']" position="attributes">
                 <attribute name="t-if">not o.only_total_all_lines</attribute>

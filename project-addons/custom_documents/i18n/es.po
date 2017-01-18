@@ -20,6 +20,12 @@ msgstr ""
 msgid "Address:"
 msgstr "Dirección:"
 
+
+#. module: custom_documents
+#: view:website:report.external_layout_header
+msgid "Reason"
+msgstr "Motivo: "
+
 #. module: custom_documents
 #: view:website:account.report_invoice_document
 msgid "Purchase order:"
