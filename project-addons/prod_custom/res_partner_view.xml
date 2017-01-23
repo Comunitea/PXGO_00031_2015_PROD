@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+
+        <record id="res_partner_filter_comercial" model="ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                   <field name="name" position="replace">
+                       <field name="name"
+                              filter_domain="['|','|','|',('comercial','ilike',self),('display_name','ilike',self),('ref','=',self),('email','ilike',self)]"/>
+                   </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
