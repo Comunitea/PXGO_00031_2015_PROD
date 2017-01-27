@@ -8,7 +8,8 @@
             <field name="inherit_id" ref="product.product_template_search_view"/>
             <field name="arch" type="xml">
                 <field name="name" position="replace">
-                    <field name="name" string="Product" filter_domain="['|', '|', '|',('default_code','ilike',self),('name','ilike',self),('supplier_code_ref','ilike',self), ('description_purchase', 'ilike', self)]"/>
+                    <field name="name" string="Product"
+                        filter_domain="['|', '|', '|', '|',('default_code','ilike',self),('name','ilike',self),('supplier_code_ref','ilike',self), ('description_purchase', 'ilike', self), ('supplier_name_ref', 'ilike', self)]"/>
                 </field>
             </field>
         </record>

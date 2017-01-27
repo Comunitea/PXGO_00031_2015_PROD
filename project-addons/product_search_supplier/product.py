@@ -27,6 +27,8 @@ class ProductTemplate(models.Model):
 
     supplier_code_ref = fields.Char('Supplier ref',
                                     compute='_get_supplier_code', store=True)
+    supplier_name_ref = fields.Char('Supplier ref',
+                                    compute='_get_supplier_name', store=True)
 
     @api.multi
     @api.depends('seller_ids', 'seller_ids.product_code')
@@ -34,3 +36,10 @@ class ProductTemplate(models.Model):
         for product in self:
             product.supplier_code_ref = ','.join(
                 [x.product_code for x in product.seller_ids if x.product_code])
+
+    @api.multi
+    @api.depends('seller_ids', 'seller_ids.product_name')
+    def _get_supplier_name(self):
+        for product in self:
+            product.supplier_name_ref = ','.join(
+                [x.product_name for x in product.seller_ids if x.product_name])
