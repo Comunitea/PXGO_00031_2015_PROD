@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<template id="report_mrporder_document_custom" inherit_id="mrp.report_mrporder">
+			<!-- elimina columna 'ubicación destino': -->
+			<xpath expr="//th[4]" position="replace"/><!-- titulo -->					
+			<xpath expr="//t[@t-if='o.move_lines']/tr/td[4]" position="replace"/><!-- productos a consumir -->
+			<xpath expr="//t[@t-if='o.move_lines2']/tr/td[4]" position="replace"/><!-- productos consumidos -->
+			
+			<!-- elimina ubicación origen en productos a consumir-->
+		    <xpath expr="//t[@t-if='o.move_lines']/tr/td[3]" position="replace">
+			</xpath> 
+			
+			<!-- añade ubicaciones de origen por quants reservados en productos a consumir-->
+			<xpath expr="//t[@t-if='o.move_lines']/tr[@t-foreach='o.move_lines']" position="inside">
+				<td>
+					<t t-if="line.reserved_quant_ids"><!-- se para esa liña de movemento de stock hai algún quant reservado-->
+						<table class="table table-condensed" >	
+							<t t-foreach="dic_locations[o.id][line.id]" t-as="location">	<!-- line: liña de stock_move -->							
+								<tr>
+									<td>
+										<t t-raw="dic_locations[o.id][line.id][location]"/> 
+									</td>					
+									<td>
+										<t t-raw="location"/>
+									</td>									
+								</tr>
+							</t>					
+						</table>					
+					</t>
+				</td>
+			</xpath> 
+			
+		</template>
+	</data>
+</openerp>
