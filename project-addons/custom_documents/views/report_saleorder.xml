@@ -102,6 +102,17 @@
                 <td t-if="not o.only_total_all_lines and l.report_only_total"></td>
             </xpath>
 
+
+
+            <xpath expr="//th[text()='Description']" position="after">
+                <th>Date planned</th>
+            </xpath>
+
+            <xpath expr="//span[@t-field='l.name']/.." position="after">
+                <td>
+                    <span t-field="l.date_planned"/>
+                </td>
+            </xpath>
         </template>
     </data>
 </openerp>

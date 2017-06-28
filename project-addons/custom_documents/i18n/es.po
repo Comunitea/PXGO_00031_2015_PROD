@@ -27,6 +27,11 @@ msgid "Reason"
 msgstr "Motivo: "
 
 #. module: custom_documents
+#: view:website:sale.report_saleorder_document
+msgid "Date planned"
+msgstr "Fecha planificada"
+
+#. module: custom_documents
 #: view:website:account.report_invoice_document
 msgid "Purchase order:"
 msgstr "Pedido:"
