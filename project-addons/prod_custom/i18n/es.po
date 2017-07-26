@@ -22,6 +22,65 @@ msgid "Supplier reference"
 msgstr "Albarán de proveedor"
 
 #. module: prod_custom
+#: field:res.company,drop_location:0
+msgid "Drop location"
+msgstr "Ubicación de baja de productos"
+
+#. module: prod_custom
+#: model:ir.actions.act_window,name:prod_custom.stock_drop_action
+#: model:ir.ui.menu,name:prod_custom.menu_stock_drop
+msgid "Stock drop"
+msgstr "Baja de productos"
+
+#. module: prod_custom
+#: code:addons/prod_custom/wizard/stock_drop.py:31
+#, python-format
+msgid "The location %s does not belong to warehouse %s"
+msgstr "La ubicación %s no pertenece al almacén %s"
+
+#. module: prod_custom
+#: field:stock.drop,warehouse:0
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: prod_custom
+#: field:stock.drop,lines:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: prod_custom
+#: field:stock.drop.line,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: prod_custom
+#: field:stock.drop.line,location:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: prod_custom
+#: view:stock.drop:prod_custom.stock_drop_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: prod_custom
+#: view:stock.drop:prod_custom.stock_drop_form
+msgid "or"
+msgstr "o"
+
+#. module: prod_custom
+#: view:stock.drop:prod_custom.stock_drop_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: prod_custom
+#: model:ir.model,name:prod_custom.model_product_product
+#: field:stock.drop.line,product:0
+msgid "Product"
+msgstr "Producto"
+
+
+#. module: prod_custom
 #: field:sale.order,delivery_date:0
 msgid "Delivery Date"
 msgstr "Fecha de envío"

@@ -29,6 +29,7 @@
     "depends": [ 'sale', 'stock', 'sale_stock', 'account'],
     "data": ['stock_view.xml', 'sale_order_view.xml', 'account_invoice.xml',
              'product_view.xml', 'wizard/stock_transfer_details_view.xml',
-             'res_partner_view.xml', 'purchase_order.xml'],
+             'res_partner_view.xml', 'purchase_order.xml',
+             'wizard/stock_drop.xml', 'res_company.xml'],
     "installable": True
 }
