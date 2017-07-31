@@ -44,7 +44,12 @@ class StockDrop(models.TransientModel):
         new_picking = self.env['stock.picking'].create(picking_vals)
         new_picking.action_confirm()
         new_picking.action_assign()
-        if new_picking.state == 'assigned':
+        if new_picking.state != 'assigned':
+            error_msg = ''
+            for move in new_picking.move_lines:
+                if move.state != 'assigned':
+                    error_msg += _('\nNot found enought stock in %s for product %s') % (move.location_id.name, move.product_id.name)
+            raise exceptions.Warning(_('Quantity error'), error_msg)
             new_picking.action_done()
         action = self.env.ref('stock.action_picking_tree_all')
         if not action:
