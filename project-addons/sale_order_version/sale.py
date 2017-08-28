@@ -39,7 +39,6 @@ class SaleOrder(models.Model):
     pricelist_id = fields.Many2one(states={'draft': [('readonly', False)]})
     project_id = fields.Many2one(states={'draft': [('readonly', False)]})
     order_line = fields.One2many(states={'draft': [('readonly', False)]})
-    ship_id = fields.Many2one(states={'draft': [('readonly', False)]})
 
 
     @api.multi

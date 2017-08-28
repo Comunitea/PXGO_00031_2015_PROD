@@ -34,6 +34,9 @@
              'views/sale.xml', 'views/stock.xml', 'views/account.xml',
              'views/valued_picking_report.xml', 'data/report_paperformat.xml',
              'sale_report.xml',
-             'views/report_mrporder.xml'],
+             'views/report_mrporder.xml',
+             'views/report_product_label.xml',
+             'wizard/product_print_labels.xml',
+             'wizard/product_print_labels_from_picking.xml'],
     "installable": True
 }

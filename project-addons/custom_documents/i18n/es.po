@@ -16,15 +16,43 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_documents
+#: model:ir.actions.act_window,name:custom_documents.product_print_labels_action
+#: model:ir.actions.act_window,name:custom_documents.product_print_labels_from_picking_action
+msgid "Print product label"
+msgstr "Etiquetas de producto"
+
+#. module: custom_documents
+#: view:product.print.labels:custom_documents.product_print_labels_form
+#: view:product.print.labels.from.picking:custom_documents.product_print_labels_from_picking_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: custom_documents
 #: view:website:custom_documents.report_picking_custom
 msgid "Address:"
 msgstr "Dirección:"
 
+#. module: custom_documents
+#: field:product.print.labels,location:0
+msgid "Location"
+msgstr "Ubicación"
 
 #. module: custom_documents
 #: view:website:report.external_layout_header
 msgid "Reason"
 msgstr "Motivo: "
+
+#. module: custom_documents
+#: view:product.print.labels:custom_documents.product_print_labels_form
+#: view:product.print.labels.from.picking:custom_documents.product_print_labels_from_picking_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: custom_documents
+#: view:product.print.labels:custom_documents.product_print_labels_form
+#: view:product.print.labels.from.picking:custom_documents.product_print_labels_from_picking_form
+msgid "or"
+msgstr "o"
 
 #. module: custom_documents
 #: view:website:sale.report_saleorder_document

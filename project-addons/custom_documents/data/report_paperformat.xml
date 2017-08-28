@@ -16,5 +16,21 @@
             <field name="header_spacing">45</field>
             <field name="dpi">90</field>
         </record>
+
+        <record id="paperformat_product_labels" model="report.paperformat">
+            <field name="name">Product labels</field>
+            <field name="format">custom</field>
+            <field name="dpi">90</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="page_height">40</field>
+            <field name="page_width">30</field>
+            <field name="orientation">Landscape</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+        </record>
+
     </data>
 </openerp>
