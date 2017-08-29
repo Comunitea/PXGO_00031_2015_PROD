@@ -5,7 +5,7 @@
         <template id="report_product_label" >
             <t t-foreach="docs" t-as="o">
                 <div class="page">
-                    <p t-field="o.description" style="font-size: 3.5mm; height: 20mm; text-overflow:ellipsis;"/>
+                    <p t-field="o.name" style="font-size: 3.5mm; height: 20mm; text-overflow:ellipsis;"/>
                     <p style="font-size: 4mm; height: 5mm">CP: <span t-field="o.default_code"/></p>
                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', o.default_code)" style="width:67mm;height:10mm"/>
                     <p style="font-size: 4mm; height: 4mm" t-esc="location"/>
@@ -17,7 +17,7 @@
         <template id="report_product_label_from_picking" >
             <t t-foreach="docs" t-as="o">
                 <div class="page">
-                    <p t-field="o.product_id.description" style="font-size: 3.5mm; height: 20mm; text-overflow:ellipsis;"/>
+                    <p t-field="o.product_id.name" style="font-size: 3.5mm; height: 20mm; text-overflow:ellipsis;"/>
                     <p style="font-size: 4mm; height: 5mm">CP: <span t-field="o.product_id.default_code"/></p>
                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', o.product_id.default_code)" style="width:67mm;height:10mm"/>
                     <p style="font-size: 4mm; height: 4mm" t-esc="o.location_dest_id.complete_name"/>
