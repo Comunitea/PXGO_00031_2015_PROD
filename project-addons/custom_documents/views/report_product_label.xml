@@ -20,7 +20,7 @@
                     <p t-field="o.product_id.name" style="font-size: 3.5mm; height: 20mm; text-overflow:ellipsis;"/>
                     <p style="font-size: 4mm; height: 5mm">CP: <span t-field="o.product_id.default_code"/></p>
                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', o.product_id.default_code)" style="width:67mm;height:10mm"/>
-                    <p style="font-size: 4mm; height: 4mm" t-esc="o.location_dest_id.complete_name"/>
+                    <p style="font-size: 4mm; height: 4mm" t-esc="' / '.join(o.location_dest_id.complete_name.split(' / ')[1:])"/>
 
                 </div>
             </t>
