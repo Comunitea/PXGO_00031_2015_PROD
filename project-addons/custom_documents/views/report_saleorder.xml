@@ -113,6 +113,31 @@
                     <span t-field="l.date_planned"/>
                 </td>
             </xpath>
+
+            <xpath expr="//t[contains(@t-if, 'p_index')]" position="replace">
+                <t t-if="p_index &lt; p_size - 1">
+                    <![CDATA[
+                        </tbody>
+                    </table>
+                    <p style="page-break-before:always;"> </p>
+                    <table class="table table-condensed">
+                    ]]>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date planned</th>
+                            <th t-if="o.state not in ('draft', 'sent')">Taxes</th>
+                            <th class="text-right" t-if="not o.only_total_all_lines">Quantity</th>
+                            <th class="text-right" t-if="not o.only_total_all_lines">Unit Price</th>
+                            <th groups="sale.group_discount_per_so_line" t-if="not o.only_total_all_lines">Disc.(%)</th>
+                            <th class="text-right">Price</th>
+                        </tr>
+                    </thead>
+                    <![CDATA[
+                        <tbody>
+                    ]]>
+                </t>
+            </xpath>
         </template>
     </data>
 </openerp>
