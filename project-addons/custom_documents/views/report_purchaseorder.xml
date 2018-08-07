@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="report_purchaseorder_document_custom" inherit_id="purchase.report_purchaseorder_document">
-            <xpath expr="//div[@class='page']/div[@class='row'][1]" position="replace">
+            <!--xpath expr="//div[@class='page']/div[@class='row'][1]" position="replace">
                 <div class="row">
                     <div class="col-xs-5 col-xs-offset-7">
                         <div t-field="o.partner_id"
@@ -10,7 +10,7 @@
                             <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
                     </div>
                 </div>
-            </xpath>
+            </xpath-->
             <xpath expr="//h2[starts-with(@t-if, 'o.state !=')]" position="replace">
                 <h3 t-if="o.state != 'draft'">Purchase Order Confirmation N°<span t-field="o.name"/></h3>
             </xpath>
