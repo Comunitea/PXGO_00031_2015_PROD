@@ -42,4 +42,5 @@ class ProductTemplate(models.Model):
 
     _defaults = {
         'type' : 'product',
+        'sale_ok': False
     }
