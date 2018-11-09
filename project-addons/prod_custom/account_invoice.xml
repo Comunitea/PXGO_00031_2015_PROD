@@ -8,7 +8,8 @@
            <field name="inherit_id" ref="account.invoice_tree"/>
            <field name="arch" type="xml">
                <field name="number" position="after">
-                    <field name="name"/>
+                    <field name="name" invisible="context.get('type') != 'out_invoice'" />
+                    <field name="supplier_invoice_number" invisible="context.get('type') != 'in_invoice'" />
                 </field>
            </field>
        </record>
