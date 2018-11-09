@@ -84,7 +84,7 @@
                                     </tr>
                                 </t>
                                 <t t-if="o.state == 'done' ">
-                                    <tr t-foreach="o.pack_operation_ids.sorted(key=lambda r: r.product_id.id)" t-as="operation">
+                                    <tr t-foreach="o.pack_operation_ids" t-as="operation">
 
                                             <td><span t-field="operation.product_id.default_code"/></td>
                                             <td><span t-field="operation.linked_move_operation_ids[0].move_id.name"/></td>
