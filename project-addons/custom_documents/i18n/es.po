@@ -28,6 +28,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: custom_documents
+#: view:website:mrp.report_mrpbomstructure
+msgid "Supplier ref."
+msgstr "Ref proveedor"
+
+#. module: custom_documents
+#: view:website:mrp.report_mrpbomstructure
+msgid "Supplier name"
+msgstr "Nombre proveedor"
+
+#. module: custom_documents
 #: view:website:custom_documents.report_picking_custom
 msgid "Address:"
 msgstr "Dirección:"

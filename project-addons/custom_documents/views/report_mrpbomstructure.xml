@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_mrpbomstructure_custom" inherit_id="mrp.report_mrpbomstructure">
+            <xpath expr="//thead/tr/th[3]" position="after">
+                <th>Supplier ref.</th>
+                <th>Supplier name</th>
+            </xpath>
+            <xpath expr="//tbody/t/tr[1]/td[3]" position="after">
+                <td></td>
+                <td></td>
+            </xpath>
+            <xpath expr="//tbody/t/tr[2]/td[3]" position="after">
+                <td><span t-esc="l['supplier_ref']"/></td>
+                <td><span t-esc="l['supplier_name']"/></td>
+            </xpath>
+        </template>
+    </data>
+</openerp>
