@@ -53,7 +53,7 @@ class StockDrop(models.TransientModel):
         new_picking.action_done()
         action = self.env.ref('stock.action_picking_tree_all')
         if not action:
-            return
+            raise exceptions.Warning('Accion no encontrada.')
         action = action.read()[0]
         res = self.env.ref('stock.view_picking_form')
         action['views'] = [(res.id, 'form')]
