@@ -91,6 +91,9 @@
                             <span t-if="o.note">
                                 <span t-field="o.note"/>
                             </span>
+                            <t t-if="o.company_id.gdpr_text">
+                                <p style="font-size:10px" t-field="o.company_id.gdpr_text"/>
+                            </t>
                         </div>
                     </t>
                 </t>

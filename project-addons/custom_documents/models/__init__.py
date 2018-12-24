@@ -22,3 +22,4 @@ from . import sale
 from . import stock
 from . import account
 from . import mrporder_report
+from . import res_company

@@ -138,6 +138,11 @@
                     ]]>
                 </t>
             </xpath>
+            <xpath expr="//div[@class='page']" position="inside">
+                <t t-if="o.company_id.gdpr_text">
+                    <p style="font-size:10px" t-field="o.company_id.gdpr_text"/>
+                </t>
+            </xpath>
         </template>
     </data>
 </openerp>

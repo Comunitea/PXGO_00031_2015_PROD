@@ -46,6 +46,11 @@
             <xpath expr="//span[@t-field='operation.product_qty']/.." position="after">
                 <td t-if="not o.only_total_all_lines and operation.linked_move_operation_ids[0].move_id.report_only_total"></td>
             </xpath>
+            <xpath expr="//div[@class='page']" position="inside">
+                <t t-if="o.company_id.gdpr_text">
+                    <p style="font-size:10px" t-field="o.company_id.gdpr_text"/>
+                </t>
+            </xpath>
 
 
         </template>
