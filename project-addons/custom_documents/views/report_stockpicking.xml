@@ -75,7 +75,7 @@
 
                                         </tr>
                                     </span>
-                                    <span t-if="o.state == 'done'  and o.pack_operation_ids">
+                                    <span t-if="o.state == 'done' and o.pack_operation_ids">
                                         <tr t-foreach="o.pack_operation_ids" t-as="operation">
                                             <t t-if="operation. linked_move_operation_ids">
                                                 <td><span t-field="operation.product_id.default_code"/></td>
