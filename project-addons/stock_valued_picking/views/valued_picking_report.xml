@@ -85,7 +85,7 @@
                                 </t>
                                 <t t-if="o.state == 'done' ">
                                     <tr t-foreach="o.pack_operation_ids" t-as="operation">
-
+                                        <t t-if="operation. linked_move_operation_ids">
                                             <td><span t-field="operation.product_id.default_code"/></td>
                                             <td><span t-field="operation.linked_move_operation_ids[0].move_id.name"/></td>
                                             <td class="text-right"><span t-field="operation.product_qty"/> <span t-field="operation.product_uom_id" groups="product.group_uom"/></td>
@@ -99,6 +99,7 @@
                                                 <span t-field="operation.linked_move_operation_ids[0].move_id.price_subtotal"
                                                     t-field-options='{"widget": "monetary", "display_currency": "o.sale_id.pricelist_id.currency_id"}'/>
                                             </td>
+                                        </t>
                                     </tr>
                                 </t>
                               </tbody>
