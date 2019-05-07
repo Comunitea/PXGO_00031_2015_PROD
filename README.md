@@ -10,7 +10,7 @@ OpenERP master en el base, PostgreSQL 9.3.4 y Supervisord 3.0
 - Si existe  un archivo frozen.cfg es el que se debeía usar ya que contiene las revisiones aprobadas
 - PostgreSQL se compila y corre bajo el usuario user (no es necesario loguearse como root), se habilita al autentificación "trust" para conexiones locales. Más info en more http://www.postgresql.org/docs/9.3/static/auth-methods.html
 - Existen plantillas para los archivo de configuración de Postgres que se pueden modificar para cada proyecto.
- 
+
 
 # Uso (adaptado)
 En caso de no haberse hecho antes en la máquina en la que se vaya a realizar, instalar las dependencias que mar Anybox
@@ -27,6 +27,7 @@ $ sudo apt-key adv --keyserver hkp://subkeys.pgp.net --recv-keys 0xE38CEB07
 ```
 $ sudo apt-get update
 $ sudo apt-get install openerp-server-system-build-deps
+$ sudo apt-get install libcups2 libcups2-dev
 ```
 - Para poder compilar e instalar postgres (debemos valorar si queremos hacerlo siempre), es necesario instalar el siguiente paquete (no e sla solución ideal, debería poder hacerlo el propio buildout, pero de momento queda así)
 ```
@@ -50,7 +51,7 @@ $ virtualenv sandbox --no-setuptools
 ```
 $ mkdir eggs
 ```
-- Ahora procedemos a ehecutar el buildout en nuestro entorno virtual
+- Ahora procedemos a ehecutar el buildout en nuestro entorno virtual.
 ```
 $ sandbox/bin/python bootstrap.py -c <configuracion_elegida>
 ```
