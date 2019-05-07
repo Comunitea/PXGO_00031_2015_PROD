@@ -27,7 +27,7 @@
     'website': '',
     "depends": ['purchase', 'account', 'l10n_es_partner_mercantil',
                 'account_payment_partner', 'sale',
-                'report_qweb_element_page_visibility', 'sale_layout'],
+                'report_qweb_element_page_visibility', 'sale_layout', 'printer_zpl2'],
     "data": ['views/footer.xml', 'views/header.xml',
              'views/report_purchaseorder.xml', 'views/report_invoice.xml',
              'views/report_saleorder.xml', 'views/report_stockpicking.xml',
@@ -37,7 +37,7 @@
              'views/res_company.xml',
              'views/report_mrpbomstructure.xml',
              'views/report_mrporder.xml',
-             'views/report_product_label.xml',
+             'views/report_product_zpl_label.xml',
              'wizard/product_print_labels.xml',
              'wizard/product_print_labels_from_picking.xml'],
     "installable": True

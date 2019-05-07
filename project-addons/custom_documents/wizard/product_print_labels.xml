@@ -11,6 +11,7 @@
                 <form string="Print assitance report">
                     <group>
                         <field name="location"/>
+                        <field name="printer_id"/>
                     </group>
                     <footer>
                         <button name="print_label" string="Print" type="object" class="oe_highlight"/>

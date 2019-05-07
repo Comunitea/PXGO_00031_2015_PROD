@@ -21,5 +21,4 @@
 from . import models
 from . import sale_report
 from . import wizard
-from . import report_product_labels_parser
 from . import bom_structure

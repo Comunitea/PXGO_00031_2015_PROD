@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="product_product_zpl_label" model="printing.label.zpl2">
+            <field name="name">Etiqueta de producto</field>
+            <field name="model_id" ref="product.model_product_product"/>
+            <field name="width">30</field>
+            <field name="origin_x">0</field>
+            <field name="origin_y">0</field>
+        </record>
+    </data>
+</openerp>
