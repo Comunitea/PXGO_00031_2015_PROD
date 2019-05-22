@@ -22,8 +22,7 @@ class ProductPrintLabelsFromPicking(models.TransientModel):
                 'label_id':
                 self.env.ref('custom_documents.product_product_zpl_label').id,
             })
-            location_name = ' / '.join(
-                pack_operation.location_dest_id.complete_name.split(' / ')[1:])
+            location_name = pack_operation.location_dest_id.name
             wizard.with_context(
                 location_name=location_name,
                 active_ids=[pack_operation.product_id.id],
