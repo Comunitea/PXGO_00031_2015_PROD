@@ -11,6 +11,7 @@ class ProductPrintLabelsFromPicking(models.TransientModel):
     printer_id = fields.Many2one(
         comodel_name='printing.printer', string='Printer', required=True,
         help='Printer used to print the labels.')
+    number_of_copies = fields.Integer(default=1)
 
     @api.multi
     def print_label(self):
@@ -22,8 +23,12 @@ class ProductPrintLabelsFromPicking(models.TransientModel):
                 'label_id':
                 self.env.ref('custom_documents.product_product_zpl_label').id,
             })
-            location_name = pack_operation.location_dest_id.name
-            wizard.with_context(
-                location_name=location_name,
-                active_ids=[pack_operation.product_id.id],
-                active_model='product.product').print_label()
+            if pack_operation.picking_id.picking_type_code == 'incoming':
+                location_name = pack_operation.location_dest_id.name
+            else:
+                location_name = ''
+            for i in range(self.number_of_copies):
+                wizard.with_context(
+                    location_name=location_name,
+                    active_ids=[pack_operation.product_id.id],
+                    active_model='product.product').print_label()

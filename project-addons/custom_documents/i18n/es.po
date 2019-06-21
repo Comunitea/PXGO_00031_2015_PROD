@@ -304,3 +304,15 @@ msgstr "o.state not in ('draft', 'sent')"
 #: view:website:report.external_layout_footer
 msgid "tomo"
 msgstr "tomo"
+
+#. module: custom_documents
+#: field:product.print.labels,number_of_copies:0
+#: field:product.print.labels.from.picking,number_of_copies:0
+msgid "Number of copies"
+msgstr "Número de copias"
+
+#. module: custom_documents
+#: field:product.print.labels,printer_id:0
+#: field:product.print.labels.from.picking,printer_id:0
+msgid "Printer"
+msgstr "Impresora"

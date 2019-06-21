@@ -11,6 +11,7 @@
                 <form string="Print assitance report">
                     <group>
                         <field name="printer_id"/>
+                        <field name="number_of_copies"/>
                     </group>
                     <footer>
                         <button name="print_label" string="Print" type="object" class="oe_highlight"/>
