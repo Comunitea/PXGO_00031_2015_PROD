@@ -48,3 +48,8 @@ class account_invoice(models.Model):
         if partner_id:
             res['value']['user_id'] = user_id
         return res
+
+
+class AccountInvoiceLine(models.Model):
+    _inherit = 'account.invoice.line'
+    _order = 'invoice_id, categ_sequence, sale_layout_cat_id, sequence, id'
