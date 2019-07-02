@@ -26,10 +26,12 @@
     'description': """""",
     'author': 'Pexego',
     'website': '',
-    "depends": [ 'sale', 'stock', 'sale_stock', 'account'],
+    "depends": ['sale', 'stock', 'sale_stock', 'account', 'account_analytic_analysis'],
     "data": ['stock_view.xml', 'sale_order_view.xml', 'account_invoice.xml',
              'product_view.xml', 'wizard/stock_transfer_details_view.xml',
              'res_partner_view.xml', 'purchase_order.xml',
-             'wizard/stock_drop.xml', 'res_company.xml', 'wizard/postmigration_reconcile_quants_view.xml'],
+             'wizard/stock_drop.xml', 'res_company.xml',
+             'wizard/postmigration_reconcile_quants_view.xml',
+             'account_analytic_account.xml'],
     "installable": True
 }

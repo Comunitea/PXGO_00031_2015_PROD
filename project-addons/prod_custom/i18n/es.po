@@ -23,6 +23,10 @@ msgid "\n"
 msgstr "\n"
 "No se ha encontrado suficiente stock en %s para el producto %s"
 
+#. module: prod_custom
+#: field:account.analytic.account,invoice_name:0
+msgid "Invoice reference"
+msgstr "Referencia factura"
 
 #. module: prod_custom
 #: field:stock.picking,supplier_ref:0

@@ -26,3 +26,4 @@ from . import product
 from . import purchase
 from . import res_partner
 from . import res_company
+from . import account_analytic_account
