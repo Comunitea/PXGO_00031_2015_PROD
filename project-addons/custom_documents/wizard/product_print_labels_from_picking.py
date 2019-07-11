@@ -23,7 +23,8 @@ class ProductPrintLabelsFromPicking(models.TransientModel):
                 'label_id':
                 self.env.ref('custom_documents.product_product_zpl_label').id,
             })
-            if pack_operation.picking_id.picking_type_code == 'incoming':
+            if pack_operation.picking_id.picking_type_code in \
+                    ('incoming', 'internal'):
                 location_name = pack_operation.location_dest_id.name
             else:
                 location_name = ''
