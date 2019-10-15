@@ -32,6 +32,7 @@
              'res_partner_view.xml', 'purchase_order.xml',
              'wizard/stock_drop.xml', 'res_company.xml',
              'wizard/postmigration_reconcile_quants_view.xml',
-             'account_analytic_account.xml'],
+             'account_analytic_account.xml',
+             'security/ir.model.access.csv'],
     "installable": True
 }

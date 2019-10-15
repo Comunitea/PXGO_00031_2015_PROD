@@ -23,5 +23,13 @@
                 </field>
             </field>
         </record>
+
+        <record model='ir.ui.menu' id='product.menu_products'>
+            <field name="groups_id" eval="[(6, 0, [])]"/>
+        </record>
+
+        <record model='ir.ui.menu' id='product.menu_products_category'>
+            <field name="groups_id" eval="[(6, 0, [])]"/>
+        </record>
     </data>
 </openerp>
