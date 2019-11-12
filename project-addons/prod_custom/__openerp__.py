@@ -33,6 +33,7 @@
              'wizard/stock_drop.xml', 'res_company.xml',
              'wizard/postmigration_reconcile_quants_view.xml',
              'account_analytic_account.xml',
+             'crm_lead.xml',
              'security/ir.model.access.csv'],
     "installable": True
 }
