@@ -316,3 +316,13 @@ msgstr "Número de copias"
 #: field:product.print.labels.from.picking,printer_id:0
 msgid "Printer"
 msgstr "Impresora"
+
+#. module: custom_documents
+#: field:res.partner,sale_text:0
+msgid "Sale text"
+msgstr "Texto para ventas"
+
+#. module: custom_documents
+#: view:res.partner:custom_documents.view_partner_form
+msgid "sales text"
+msgstr "Texto para ventas"
