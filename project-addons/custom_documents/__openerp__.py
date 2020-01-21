@@ -35,6 +35,7 @@
              'views/valued_picking_report.xml', 'data/report_paperformat.xml',
              'sale_report.xml',
              'views/res_company.xml',
+             'views/res_partner.xml',
              'views/report_mrpbomstructure.xml',
              'views/report_mrporder.xml',
              'views/report_product_zpl_label.xml',

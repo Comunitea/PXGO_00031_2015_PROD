@@ -29,12 +29,16 @@
                     <div class="col-xs-5 col-xs-offset-7">
                         <div t-field="o.partner_id"
                             t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                        <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
                     </div>
                 </div>
             </xpath>
 
             <xpath expr="//p[@t-field='o.note']" position="before">
                 <strong t-if="o.note">Notes</strong>
+            </xpath>
+            <xpath expr="//p[@t-field='o.note']" position="after">
+                <p t-esc="o.partner_id.sale_text"/>
             </xpath>
 
             <xpath expr="//div[@t-if='o.payment_term']" position="replace">
