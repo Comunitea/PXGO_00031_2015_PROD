@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <notebook position="inside">
                     <page string="sales text">
-                        <field name="sale_text" nolabel="1" />
+                        <field name="sale_text" nolabel="1" widget="html"/>
                     </page>
                 </notebook>
             </field>

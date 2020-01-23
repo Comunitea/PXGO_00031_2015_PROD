@@ -38,7 +38,7 @@
                 <strong t-if="o.note">Notes</strong>
             </xpath>
             <xpath expr="//p[@t-field='o.note']" position="after">
-                <p t-esc="o.partner_id.sale_text"/>
+                <p t-raw="o.partner_id.sale_text"/>
             </xpath>
 
             <xpath expr="//div[@t-if='o.payment_term']" position="replace">
